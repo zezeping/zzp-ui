@@ -1,0 +1,7 @@
+@mixin disabled {
+  cursor: not-allowed;
+  opacity: .5;
+  &:active {
+    opacity: .5;
+  }
+}

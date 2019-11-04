@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 
+import ZzpUi from '../packages'
+Vue.use(ZzpUi)
+
 Vue.config.productionTip = false
 
 new Vue({
