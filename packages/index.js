@@ -2,9 +2,10 @@ import './assets/stylesheets/application.scss'
 
 import VueExt from './vue-ext'
 
-import Layout from './layout'
-import Roll from './roll'
-const uses = [Layout, Roll]
+import layout from './layout'
+import roll from './roll'
+import json from './json'
+const uses = [layout, roll, json]
 const components = []
 
 // eg: Vue.use(zzp-ui, {router, store})

@@ -5,7 +5,12 @@
 ### Install
 
 单独安装组件
-```javascript
+```vue
+import Vue from 'vue'
+import layout from 'zzp-ui/packages/layout'
+Vue.use(layout)
+```
+```vue
 import Row from 'zzp-ui/packages/layout/row'
 import Col from 'zzp-ui/packages/layout/col'
 export default {
@@ -19,7 +24,7 @@ export default {
 ### Usage
 Layout 组件提供了`24列`栅格，通过在`Col`上添加`span`属性设置列所占的宽度百分比
 此外，添加`offset`属性可以设置列的偏移宽度，计算方式与`span`相同
-```
+```vue
 <h5>基础用法</h5>
 <zzp-row >
   <zzp-col span="8">span:8</zzp-col>
@@ -87,19 +92,19 @@ Layout 组件提供了`24列`栅格，通过在`Col`上添加`span`属性设置�
 
 > ZzpRow Props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| ---- | ---- | ---- | ---- | ---- |
-| gutter | 列元素之间的间距（单位为px） | String, Number | - | - |
-| flex | flex布局 | Boolean | false | - |
-| justify | Flex布局下的水平对齐方式，可选值为 `start`, `center`, `end`, `spance-between`, `space-around` | String | - | - |
-| align | Flex布局下的垂直对齐方式，可选值为`top`, `center`, `bottom` | String | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 必填 | 版本 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| gutter | 列元素之间的间距（单位为px） | `String`, `Number` | - | - | - |
+| flex | flex布局 | `Boolean` | `false` | - | - |
+| justify | Flex布局下的水平对齐方式，可选值为 `start`, `center`, `end`, `spance-between`, `space-around` | `String` | - | - | - |
+| align | Flex布局下的垂直对齐方式，可选值为`top`, `center`, `bottom` | `String` | - | - | - |
 
 > ZzpCol Props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| ---- | ---- | ---- | ---- | ---- |
-| span | 列元素宽度 | Number | - | - |
-| offset | 列元素偏移距离 | Number | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 必填 | 版本 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| span | 列元素宽度 | `Number` | - | - | - |
+| offset | 列元素偏移距离 | `Number` | - | - | - |
 
 
 
