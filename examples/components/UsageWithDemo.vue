@@ -53,8 +53,10 @@ export default {
     }
     .demo {
       .container {
-        margin: 20px 20px 20px 0;
         transform: translate(0, 0);
+        font-size: 13px;
+        overflow: auto;
+        margin: 20px 20px 20px 0;
         width: 320px;
         height: 450px;
         background: #f7f7f7;

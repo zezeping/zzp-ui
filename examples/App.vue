@@ -2,7 +2,7 @@
   <div id="app">
     <zzp-row flex align="top">
       <nav-bar></nav-bar>
-      <zzp-col :span="24">
+      <zzp-col :span="24" style="overflow: hidden; overflow-y: auto">
         <router-view/>
       </zzp-col>
     </zzp-row>

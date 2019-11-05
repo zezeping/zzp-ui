@@ -1,5 +1,5 @@
-import Row from './src/row'
-import Col from './src/col'
+import Row from './src/Row'
+import Col from './src/Col'
 
 export default {
   install (Vue) {

@@ -1,13 +1,14 @@
 /* eslint-disable */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/home/index.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', name: 'home', component: Home },
-  { path: '/layout', name: 'Layout', component: () => import(/* webpackChunkName: "Layout" */ '../views/layout/index.vue') },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/layout', name: 'Layout', component: () => import(/* webpackChunkName: "layout" */ '../views/layout/index.vue') },
+  { path: '/roll', name: 'Roll', component: () => import(/* webpackChunkName: "roll" */ '../views/roll/index.vue') },
   { path: '/about', name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

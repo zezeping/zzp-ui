@@ -1,4 +1,6 @@
-# Layout 布局 layout: { Row, Col }
+# Layout 布局 [pc&wap]
+
+
 
 ### Install
 

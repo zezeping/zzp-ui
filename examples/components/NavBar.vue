@@ -1,7 +1,8 @@
 <template>
   <div class="nav-bar">
-    <router-link to="/">首页</router-link>
+    <router-link :class="{actived: $route.name === 'Home'}" to="/">首页</router-link>
     <router-link :class="{actived: $route.name === 'Layout'}" to="/layout">Layout 布局</router-link>
+    <router-link :class="{actived: $route.name === 'Roll'}" to="/roll">Roll 滚动</router-link>
     <router-link to="/about">关于</router-link>
   </div>
 </template>
