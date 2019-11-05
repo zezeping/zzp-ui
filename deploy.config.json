@@ -1,0 +1,24 @@
+{
+  "default": {
+    "deployTo": "/mnt/www/zzp-ui",
+    "repositoryUrl": "https://github.com/zezeping/zzp-ui.git",
+    "keepReleases": 10,
+    "archive": {
+      "rootDir": "dist",
+      "only": ["*"]
+    },
+    "shared": {
+      "dirs": ["node_modules"],
+      "files": []
+    },
+    "installCommand": "cnpm install",
+    "buildCommands": ["cnpm install", "cnpm run build"]
+  },
+  "production": {
+    "servers": [{
+      "host": "47.100.235.38",
+      "username": "deploy"
+    }],
+    "branch": "master"
+  }
+}

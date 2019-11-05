@@ -14,7 +14,8 @@
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit",
-    "build-lib": "vue-cli-service build --target lib --name zzp-ui --dest lib packages/index.js"
+    "build-lib": "vue-cli-service build --target lib --name zzp-ui --dest lib packages/index.js",
+    "deploy-prod": "jsdeploy build -e production && jsdeploy deploy -e production"
   },
   "dependencies": {
     "core-js": "^3.3.2",
