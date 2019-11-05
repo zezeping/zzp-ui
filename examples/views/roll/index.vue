@@ -48,9 +48,6 @@ export default {
     }
   },
   methods: {
-    clickMe () {
-      console.log('111')
-    }
   }
 }
 </script>
