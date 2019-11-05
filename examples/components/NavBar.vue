@@ -1,0 +1,42 @@
+<template>
+  <div class="nav-bar">
+    <router-link to="/">首页</router-link>
+    <router-link :class="{actived: $route.name === 'Layout'}" to="/layout">Layout 布局</router-link>
+    <router-link to="/about">关于</router-link>
+  </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style lang="scss" scoped>
+  .nav-bar {
+    height: 100%;
+    width: 215px;
+    min-width: 215px;
+    background: #fff;
+    overflow: auto;
+    a {
+      display: block;
+      line-height: 34px;
+      font-size: 13px;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+        color: #000;
+      }
+      &.actived {
+        position: relative;
+        font-size: 15px;
+        &:after {
+          position: absolute;
+          content: '>';
+          font-weight: 500;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+</style>

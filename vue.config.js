@@ -13,9 +13,8 @@ module.exports = {
       filename: 'index.html'
     }
   },
-  // 为packages目录添加babel-loader处理
   chainWebpack: config => {
-    config.resolve.alias.set('@', resolve('./examples'))
+    // 为packages目录添加babel-loader处理
     config.module
       .rule('js')
       .include
@@ -26,5 +25,13 @@ module.exports = {
       .tap(options => {
         return options
       })
+  },
+  configureWebpack: config => {
+    config.module.rules.push({
+      test: /.md$/,
+      use: [{
+        loader: 'text-loader'
+      }]
+    })
   }
 }
