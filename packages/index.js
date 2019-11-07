@@ -5,9 +5,10 @@ import VueExt from './vue-ext'
 import directives from './directives'
 
 import layout from './layout'
+import scroll from './scroll'
 import roll from './roll'
 import json from './json'
-const uses = [layout, roll, json]
+const uses = [layout, scroll, roll, json]
 const components = []
 
 // eg: Vue.use(zzp-ui, {router, store})
