@@ -2,6 +2,8 @@ import './assets/stylesheets/application.scss'
 
 import VueExt from './vue-ext'
 
+import directives from './directives'
+
 import layout from './layout'
 import roll from './roll'
 import json from './json'
@@ -15,6 +17,8 @@ const install = function (Vue, globalVueOptions) {
   }
   // this.$ext
   Vue.use(VueExt, globalVueOptions)
+  // directives
+  Vue.use(directives)
   // components
   uses.map(component => Vue.use(component))
   components.map(component => Vue.component(component.name, component))

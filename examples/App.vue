@@ -18,6 +18,15 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+  .zzp-row {
+    height: 100%;
+    .zzp-col {
+      height: 100%;
+    }
+  }
+</style>
+
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -29,13 +38,6 @@ export default {
 
   /*deep*/ a {
     color: #2c3e50;
-  }
-
-  .zzp-row {
-    height: 100%;
-    .zzp-col {
-      height: 100%;
-    }
   }
 }
 </style>

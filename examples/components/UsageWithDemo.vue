@@ -1,7 +1,7 @@
 <template>
   <zzp-row flex align="top" class="usage-with-demo">
     <zzp-col class="usage" :span="24" style="overflow-x: hidden">
-      <div class="usage markdown hljs" v-html="marked(usage)"></div>
+      <div class="markdown hljs" v-html="marked(usage)"></div>
     </zzp-col>
     <div class="demo">
       <div class="container">
@@ -50,6 +50,7 @@ export default {
     overflow: hidden;
     .usage {
       padding: 0 20px 50px;
+      height: 100%;
     }
     .demo {
       .container {
