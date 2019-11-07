@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     changeInputValue (e) {
-      console.log(3333)
       this.debounceValue = this.inputValue
     }
   }

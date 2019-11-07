@@ -8,6 +8,7 @@ import Vue from 'vue'
 import roll from 'zzp-ui/packages/roll'
 Vue.use(roll)
 ```
+或
 ```vue
 import Roll from 'zzp-ui/packages/roll/roll'
 import RollItem from 'zzp-ui/packages/roll/rollItem'

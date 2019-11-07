@@ -10,6 +10,7 @@ import Vue from 'vue'
 import layout from 'zzp-ui/packages/layout'
 Vue.use(layout)
 ```
+或
 ```vue
 import Row from 'zzp-ui/packages/layout/row'
 import Col from 'zzp-ui/packages/layout/col'

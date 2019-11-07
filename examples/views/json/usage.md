@@ -8,6 +8,7 @@ import Vue from 'vue'
 import json from 'zzp-ui/packages/json'
 Vue.use(json)
 ```
+或
 ```vue
 import Json from 'zzp-ui/packages/json/json'
 export default {

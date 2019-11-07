@@ -16,7 +16,7 @@
   },
   "production": {
     "servers": [{
-      "host": "47.100.235.38",
+      "host": "120.77.252.76",
       "username": "deploy"
     }],
     "branch": "master"

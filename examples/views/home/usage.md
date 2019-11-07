@@ -8,9 +8,16 @@
 
 ## Global Install
 
+> 引入编译过后的组件库
 ```
 import Vue from 'vue'
 import ZzpUi from 'zzp-ui'
 import 'zzp-ui/lib/zzp-ui.css'
+Vue.use(ZzpUi)
+```
+> 未编译的组件库
+```
+import Vue from 'vue'
+import ZzpUi from 'zzp-ui/packages'
 Vue.use(ZzpUi)
 ```
