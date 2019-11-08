@@ -1,10 +1,7 @@
-# zzp-ui
+# zzp-ui [![npm](https://img.shields.io/npm/v/zzp-ui.svg?style=flat-square)](https://www.npmjs.com/package/zzp-ui)
 
-本项目设计初衷是为了补足市面UI组件的不足，不建议全局引入！
+本项目设计初衷是为了补足市面UI组件的不足，建议配合其他组件库使用，不建议全局引入！
 
-本项目设计初衷是为了补足市面UI组件的不足，不建议全局引入！
-
-本项目设计初衷是为了补足市面UI组件的不足，不建议全局引入！
 
 ## Global Install
 

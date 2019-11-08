@@ -9,7 +9,7 @@
       <div style="display: inline-block; width: 100px">6</div>
       <div style="display: inline-block; width: 100px">7</div>
     </zzp-scroll>
-    <zzp-scroll enableRefresh @refresh="refreshData" enableLoadMore  @loadMore="loadMoreData" ref="zScroll">
+    <zzp-scroll enableRefresh @refresh="refreshData" enableLoadMore  @loadMore="loadMoreData" ref="zScroll" style="height: 370px">
       <div slot="topFixed" style="background: #aaa">topFixed <button @click="toggleBlankView">toggleBlankView</button></div>
       <ul slot="beforeScrollTopFixed">
         <li>slot - beforeScrollTopFixed</li>

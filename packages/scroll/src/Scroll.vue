@@ -15,17 +15,19 @@
               <span>{{ refreshConfig && refreshConfig.txt.meetRefresh || '释放刷新'}}</span>
             </div>
             <div class="content-box" v-else-if="refreshStatus === 'refreshing'">
-              <span>{{ refreshConfig && refreshConfig.txt.refreshing || '加载中...'}}</span>
+              <span>{{refreshConfig && refreshConfig.txt.refreshing || '加载中...'}}</span>
             </div>
             <div class="content-box" v-else-if="refreshStatus === 'rebounding'">
-              <span>{{ refreshConfig && refreshConfig.txt.rebounding || '加载完成'}}</span>
+              <span>{{refreshConfig && refreshConfig.txt.rebounding || '加载完成'}}</span>
             </div>
           </slot>
         </div>
         <!-- 内容区 -->
         <!--view - 空页面-->
         <template v-if="enabledBlankView">
-          <slot name="blankView">暂无数据</slot>
+          <slot name="blankView">
+            <p class="blank-view">暂无数据</p>
+          </slot>
         </template>
         <!--view - 真实数据-->
         <template v-else>
@@ -49,7 +51,7 @@
           <slot name="afterScrollBottomFixed"></slot>
         </template>
         <!--上拉加载更多-->
-        <div class="loadmore-view-container" v-if="enableLoadMore" :style="{lineHeight: `${loadMoreConfig && loadMoreConfig.threshold}px`}">
+        <div class="loadmore-view-container" v-if="enableLoadMore && !enabledBlankView" :style="{lineHeight: `${loadMoreConfig && loadMoreConfig.threshold}px`}">
           <slot name="loadMoreView">
             <div class="content-box" v-if="!hasMore">
               <span>{{ loadMoreConfig && loadMoreConfig.txt.noMore || '没有更多数据了'}}</span>
@@ -67,13 +69,13 @@
         </div>
       </div>
       <!-- 固定 whenScrollTopFixed slot-->
-      <template v-if="allSlotKeys.indexOf('whenScrollTopFixed') !== -1 && shouldScrollTopFixed">
+      <template v-if="allSlotKeys.indexOf('whenScrollTopFixed') !== -1 && shouldScrollTopFixed && !enabledBlankView">
         <div class="when-scroll-top-fixed enabled">
           <slot name="whenScrollTopFixed"></slot>
         </div>
       </template>
       <!-- 固定 whenScrollBottomFixed slot-->
-      <template v-if="allSlotKeys.indexOf('whenScrollBottomFixed') !== -1 && shouldScrollBottomFixed">
+      <template v-if="allSlotKeys.indexOf('whenScrollBottomFixed') !== -1 && shouldScrollBottomFixed && !enabledBlankView">
         <div class="when-scroll-bottom-fixed enabled">
           <slot name="whenScrollBottomFixed"></slot>
         </div>
@@ -109,6 +111,7 @@ export default {
       //   this.enabledBlankView = enableBlankView
       // }
       this.enabledBlankView = show
+      this.hasMore = !show
     },
     disable () {
       this.scroll && this.scroll.disable()
@@ -146,7 +149,7 @@ export default {
           this.scroll['finishPullDown']()
           this.refreshStatus = 'normal'
           this.refresh()
-        }, 1500)
+        }, 1200)
       } else if (this.enableLoadMore && this.loadMoreStatus === 'loading') {
         this.loadMoreStatus = 'rebounding'
         // 获取到列表重新计算底部吸底
@@ -157,7 +160,7 @@ export default {
           this.scroll['finishPullUp']()
           this.loadMoreStatus = 'normal'
           this.refresh()
-        }, 1500)
+        }, 1200)
       } else {
         this.refresh()
       }
@@ -175,9 +178,9 @@ export default {
     __handlerOnScroll (pos) {
       this.beforeScrollPos = pos
       // 处理滚动fixed定位 垂直布局，并传有whenScrollTopFixed || whenScrollBottomFixed slot
-      if (this.direction === 'vertical' && !this.enabledBlankView) {
+      if (this.direction === 'vertical') {
         if (this.allSlotKeys.indexOf('whenScrollTopFixed') !== -1) {
-          let offsetTop = (this.$refs['whenScrollTopFixedRef'] && this.$refs['whenScrollTopFixedRef']).offsetTop || 9999999999
+          let offsetTop = (this.$refs['whenScrollTopFixedRef'] && this.$refs['whenScrollTopFixedRef'].offsetTop) || 9999999999
           // console.log(this.$refs['whenScrollTopFixedRef'] && this.$refs['whenScrollTopFixedRef'].offsetTop || '??')
           if (-offsetTop >= pos.y) {
             this.shouldScrollTopFixed = true
@@ -185,10 +188,10 @@ export default {
             this.shouldScrollTopFixed = false
           }
         }
-        if (this.allSlotKeys.indexOf('whenScrollBottomFixed') !== -1) {
+        if (this.allSlotKeys.indexOf('whenScrollBottomFixed') !== -1 && !this.enabledBlankView) {
           let rootClientHeight = this.$refs['wrapperRef'] && this.$refs['wrapperRef'].offsetHeight
           let selfClientHeight = this.$refs['whenScrollBottomFixedRef'] && this.$refs['whenScrollBottomFixedRef'].offsetHeight
-          let offsetTop = (this.$refs['whenScrollBottomFixedRef'] && this.$refs['whenScrollBottomFixedRef']).offsetTop || 0
+          let offsetTop = (this.$refs['whenScrollBottomFixedRef'] && this.$refs['whenScrollBottomFixedRef'].offsetTop) || 0
           // console.log(rootClientHeight, offsetTop, rootClientHeight - selfClientHeight - offsetTop)
           if (rootClientHeight - selfClientHeight - offsetTop <= pos.y) {
             this.shouldScrollBottomFixed = true
@@ -234,7 +237,7 @@ export default {
       }
 
       ._zzp-scroll-content {
-        min-height: 100%;
+        min-height: 100.5%;
 
         .refresh-view-container {
           position: absolute;
@@ -276,6 +279,11 @@ export default {
           position: absolute;
           left: 0; right: 0; bottom: 0;
         }
+      }
+      .blank-view {
+        text-align: center;
+        line-height: 40px;
+        color: #999;
       }
     }
   }

@@ -98,6 +98,7 @@ export default {
 | enableLoadMore | 是否允许加载更多 | `Boolean` | `false` | - | - |
 | mouseWheel | 是否支持滚轮 | `Boolean` | `false` | - | - |
 | bindToWrapper | [`move`事件绑定到滚动的容器上(默认在`document`上)](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#bindtowrapper) | `Boolean` | `false`(`vant popup`组件移动端无法滚动可以将该属性设置为`true`) | - | - |
+| autoKeyboard | 是否自动适应移动端键盘弹起 | `Boolean` | `false` | - | - |
 
 ### Scroll methods 
 
