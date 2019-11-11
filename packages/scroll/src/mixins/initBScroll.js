@@ -49,11 +49,35 @@ export default {
       type: [Boolean],
       default: false
     },
+    probeType: {
+      type: Number,
+      default: 3
+    },
     mouseWheel: {
       type: [Boolean],
       default: false
     },
     bindToWrapper: {
+      type: [Boolean],
+      default: false
+    },
+    autoBlur: {
+      type: [Boolean],
+      default: true
+    },
+    preventDefault: {
+      type: Boolean,
+      default: true
+    },
+    preventDefaultException: {
+      type: Object,
+      default () {
+        return {
+          tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/
+        }
+      }
+    },
+    stopPropagation: {
       type: [Boolean],
       default: false
     }
@@ -92,7 +116,7 @@ export default {
       //   contentRef.style.minHeight = `${getRect(wrapperRef).height}px`
       // }
       let options = {
-        probeType: 3,
+        probeType: this.probeType,
         click: true,
         scrollY: this.freeScroll || this.direction === 'vertical',
         scrollX: this.freeScroll || this.direction === 'horizontal',
@@ -102,8 +126,11 @@ export default {
         startX: this.startX,
         startY: this.startY,
         freeScroll: this.freeScroll,
+        preventDefault: this.preventDefault,
+        preventDefaultException: this.preventDefaultException,
         bindToWrapper: this.bindToWrapper,
-        stopPropagation: true,
+        autoBlur: this.autoBlur,
+        stopPropagation: this.stopPropagation,
         // 是否支持pc滚轮滚动
         mouseWheel: this.mouseWheel
         // bounce: this.bounce,

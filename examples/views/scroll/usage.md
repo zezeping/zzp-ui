@@ -97,7 +97,12 @@ export default {
 | enableRefresh | 是否允许下拉刷新 | `Boolean` | `false` | - | - |
 | enableLoadMore | 是否允许加载更多 | `Boolean` | `false` | - | - |
 | mouseWheel | 是否支持滚轮 | `Boolean` | `false` | - | - |
+| probeType | [`scroll派发滚动事件的时机`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#probetype) | `Number` | `3` | - | - |
 | bindToWrapper | [`move`事件绑定到滚动的容器上(默认在`document`上)](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#bindtowrapper) | `Boolean` | `false`(`vant popup`组件移动端无法滚动可以将该属性设置为`true`) | - | - |
+| autoBlur | [在滚动之前会让当前激活的元素（input、textarea）自动失去焦点](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#autoblurv170) | `Boolean` | `true` | - | - |
+| preventDefault | [`事件派发后是否阻止浏览器默认行为`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefault) | `Boolean` | `true` | - | - |
+| preventDefaultException | [`允许部分原生组件的默认行为`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | `Object` | `{ tagName: /^(INPUT\|TEXTAREA\|BUTTON\|SELECT)$/ }` | - | - |
+| stopPropagation | [是否阻止事件冒泡。多用在嵌套 scroll 的场景](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#stoppropagationv190) | `Boolean` | `false` | - | - |
 | autoKeyboard | 是否自动适应移动端键盘弹起 | `Boolean` | `false` | - | - |
 
 ### Scroll methods 

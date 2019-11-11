@@ -50,14 +50,15 @@ export default {
           item.isFocus = false
         })
       })
+      // better-scroll 提供支持 autoBlur http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#autoblurv170
       // input / textarea, 点击页面失去焦点
-      this.$el && this.$el.addEventListener('click', (event) => {
-        this.keyboardItems.forEach(item => {
-          if (event.target !== item.dom) {
-            item.dom.blur()
-          }
-        })
-      })
+      // this.$el && this.$el.addEventListener('click', (event) => {
+      //   this.keyboardItems.forEach(item => {
+      //     if (event.target !== item.dom) {
+      //       item.dom.blur()
+      //     }
+      //   })
+      // })
     }
   },
   beforeDestroy () {
