@@ -11,9 +11,13 @@ const routes = [
   { path: '/scroll', name: 'Scroll', component: () => import(/* webpackChunkName: "scroll" */ '../views/scroll/index.vue') },
   { path: '/roll', name: 'Roll', component: () => import(/* webpackChunkName: "roll" */ '../views/roll/index.vue') },
   { path: '/json', name: 'Json', component: () => import(/* webpackChunkName: "json" */ '../views/json/index.vue') },
-  { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "json" */ '../views/directives'), children: [
+  { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/directives'), children: [
       { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/directives/input/index.vue') },
       { path: 'img', name: 'DirectiveImg', component: () => import(/* webpackChunkName: "about" */ '../views/directives/img/index.vue') },
+    ]
+  },
+  { path: '/mixins', redirect: '/mixins/mixModel', name: 'Mixin', component: () => import(/* webpackChunkName: "mixins" */ '../views/mixins'), children: [
+      { path: 'mixModel', name: 'MixinModel', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixModel/index.vue') },
     ]
   },
   { path: '/about', name: 'about',
