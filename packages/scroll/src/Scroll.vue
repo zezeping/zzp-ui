@@ -7,7 +7,7 @@
       <div class="_zzp-scroll-content" ref="contentRef">
         <!--下拉刷新-->
         <div class="refresh-view-container" v-if="enableRefresh" :style="{lineHeight: `${refreshConfig && refreshConfig.stop}px`}">
-          <slot name="refreshView">
+          <slot name="refreshView" :refreshStatus="refreshStatus">
             <div class="content-box" v-if="refreshStatus === 'normal'">
               <span>{{ refreshConfig && refreshConfig.txt.normal || '下拉刷新'}}</span>
             </div>
@@ -52,7 +52,7 @@
         </template>
         <!--上拉加载更多-->
         <div class="loadmore-view-container" v-if="enableLoadMore && !enabledBlankView" :style="{lineHeight: `${loadMoreConfig && loadMoreConfig.threshold}px`}">
-          <slot name="loadMoreView">
+          <slot name="loadMoreView" :loadMoreStatus="loadMoreStatus">
             <div class="content-box" v-if="!hasMore">
               <span>{{ loadMoreConfig && loadMoreConfig.txt.noMore || '没有更多数据了'}}</span>
             </div>

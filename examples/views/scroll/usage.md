@@ -119,7 +119,7 @@ export default {
 
 ### Scroll slots 
 
-| 名称 | 说明 | 默认 | 额外说明 | 版本 |
+| 名称 | 说明 | 参数 | 额外说明 | 版本 |
 | ---- | ---- | ---- | ---- | ---- |
 | topFixed | 顶部固定 | - | - | - |
 | bottomFixed | 底部固定 | - | - | - |
@@ -129,6 +129,8 @@ export default {
 | default | 默认内容区 | - | - | - |
 | whenScrollBottomFixed | 底部吸底 | - | - | - |
 | afterScrollBottomFixed | 底部吸底slot之后的视图 | - | - | - |
+| refreshView | 自定义下来刷新的视图 | `refreshStatus` | `refreshStatus`的值包括`normal 正常状态`,`meetRefresh 释放后可以执行刷新`, `refreshing 正在刷新中`, `rebounding: 刷新完成，回弹过程中` | - |
+| loadMoreView | 自定义加载更多的视图 | `loadMoreStatus` | `loadMoreStatus`的值包括`normal 正常状态`, `loading 正在刷新中`, `rebounding: 加载完成，回弹过程中` | - |
 
 
 
