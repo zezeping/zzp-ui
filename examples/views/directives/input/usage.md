@@ -8,7 +8,7 @@ Vue.use(input)
 ```
 
 
-## `v-debounce`
+## `v-debounce` 防抖
 
 > 单独安装`v-debounce`组件
 ```vue

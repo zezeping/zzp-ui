@@ -1,5 +1,13 @@
 # mixin - mixModel
 
+### Usage
+```
+import mixModel from 'zzp-ui/packages/mixins/mixModel'
+export default {
+   mixins: [mixModel]
+}
+```
+
 ### mixModel Props 
 
 | 属性 | 说明 | 类型 | 默认值 | 必填 | 版本 |
