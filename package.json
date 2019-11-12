@@ -18,6 +18,7 @@
     "deploy-prod": "jsdeploy build -e production && jsdeploy deploy -e production"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^1.0.1",
     "better-scroll": "^1.15.2",
     "lodash": "^4.17.15"
   },

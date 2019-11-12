@@ -1,4 +1,4 @@
-import Json from './src/Json'
+import Json from './json'
 
 export default {
   install (Vue) {
