@@ -49,7 +49,7 @@ export default {
     height: 100%;
     overflow: hidden;
     .usage {
-      padding: 0 20px 50px;
+      margin: 0 20px 50px;
       height: 100%;
     }
     .demo {
