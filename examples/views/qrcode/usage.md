@@ -22,6 +22,8 @@ export default {
 ### Usage
 ```vue
 <zzp-qrcode value="http://t.uc.cn/11_6mRFz"></zzp-qrcode>
+<!--<qrcode value="Hello, World!" :options="{ width: 200 }"></qrcode>-->
+
 ```
 
 ### Qrcode Props 
