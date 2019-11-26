@@ -170,11 +170,30 @@ export default {
           this.scroll['finishPullUp']()
         }
       })
+    },
+    _watchImgsLoad () {
+      // 解决better-scroll因为图片没有下载完导致的滚动条高度不够，无法浏览全部内容的问题。
+      // 原因是better-scroll初始化是在dom加载后执行，此时图片没有下载完成，导致滚动条高度计算不准确。
+      // 利用图片的complete属性进行判断，当所有图片下载完成后再对scroll重新计算。
+      let img = this.$refs['wrapperRef'].getElementsByTagName('img')
+      let count = 0
+      let length = img.length
+      if (length) {
+        let timer = setInterval(() => {
+          if (count === length) {
+            this.forceUpdate() // bs提供的刷新的方法，详见官网
+            clearInterval(timer)
+          } else if (img[count].complete) {
+            count++
+          }
+        }, 100)
+      }
     }
   },
   mounted () {
     this.$nextTick(() => {
       this._initScroll()
+      this._watchImgsLoad()
     })
   },
   beforeDestroy () {
