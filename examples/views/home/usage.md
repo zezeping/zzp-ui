@@ -59,7 +59,7 @@ module.exports = {
       postcss: {
         plugins: [
           require('postcss-pxtorem')({
-            rootValue: 37.5, // 根大小750
+            rootValue: 75, // 根大小750
             propList: ['*'], // 属性的选择器，*表示通用
             selectorBlackList: ['.px-'], //   忽略的选择器   .ig-  表示 .ig- 开头的都不会转换
           })
