@@ -240,6 +240,7 @@ export default {
         min-height: 100.5%;
 
         .refresh-view-container {
+          font-size: 14Px;
           position: absolute;
           left: 0;
           width: 100%;
@@ -256,6 +257,7 @@ export default {
           }
         }
         .loadmore-view-container {
+          font-size: 14Px;
           color: #999;
           .content-box {
             display: flex;
@@ -269,12 +271,14 @@ export default {
         }
       }
       .when-scroll-top-fixed {
+        font-size: 14Px;
         &.enabled {
           position: absolute;
           left: 0; right: 0; top: 0;
         }
       }
       .when-scroll-bottom-fixed {
+        font-size: 14Px;
         &.enabled {
           position: absolute;
           left: 0; right: 0; bottom: 0;

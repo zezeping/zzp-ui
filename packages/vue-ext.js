@@ -5,12 +5,13 @@ export default {
       mount (Component, componentOptions = {}, vueOptions = {}) {
         let parentDom = componentOptions['onEl'] || document.body
         delete componentOptions['onEl']
-        const instance = new Vue({
-          ...Object.assign({}, globalVueOptions, vueOptions),
-          render (h) {
-            return h(Component, { ...componentOptions })
-          }
-        })
+
+        let vueConfig = Object.assign({}, globalVueOptions, vueOptions)
+        vueConfig.render = function (h) {
+          return h(Component, componentOptions)
+        }
+        const instance = new Vue(vueConfig)
+
         parentDom.appendChild(instance.$mount().$el)
         let component = instance.$children[0]
 
