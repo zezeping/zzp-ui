@@ -168,11 +168,12 @@ export default {
     // 初始化scroll完成自动调用该方法
     _afterInitScroll () {
       // 监听滚动
+      this.scroll.on('scroll', (pos) => {
+        this.__handlerOnScroll(pos)
+      })
+      // 适应固定定位位置
       if (this.allSlotKeys.indexOf('whenScrollTopFixed') !== -1 || this.allSlotKeys.indexOf('whenScrollBottomFixed') !== -1) {
         this.__handlerOnScroll(this.beforeScrollPos)
-        this.scroll.on('scroll', (pos) => {
-          this.__handlerOnScroll(pos)
-        })
       }
     },
     __handlerOnScroll (pos) {
