@@ -101,8 +101,9 @@ export default {
 | bindToWrapper | [`move`事件绑定到滚动的容器上(默认在`document`上)](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#bindtowrapper) | `Boolean` | `false`(`vant popup`组件移动端无法滚动可以将该属性设置为`true`) | - | - |
 | autoBlur | [在滚动之前会让当前激活的元素（input、textarea）自动失去焦点](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#autoblurv170) | `Boolean` | `true` | - | - |
 | preventDefault | [`事件派发后是否阻止浏览器默认行为`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefault) | `Boolean` | `true` | - | - |
-| preventDefaultException | [`允许部分原生组件的默认行为`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | `Object` | `{ tagName: /^(INPUT\|TEXTAREA\|BUTTON\|SELECT)$/ }` | - | - |
+| preventDefaultException | [`允许部分原生组件的默认行为`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | `Object` | `{tagName: /^(INPUT\|TEXTAREA\|BUTTON\|SELECT)$/i, className: /(^\|\s)preventDefaultException(\s\|$)/}` | - | - |
 | stopPropagation | [是否阻止事件冒泡。多用在嵌套 scroll 的场景](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#stoppropagationv190) | `Boolean` | `false` | - | - |
+| bounce | [当滚动超过边缘的时候会有一小段回弹动画](https://better-scroll.github.io/docs/zh-CN/guide/base-scroll-options.html#bounce) | `Boolean`, `Object` | `true` | - | - |
 | autoKeyboard | 是否自动适应移动端键盘弹起 | `Boolean` | `false` | - | - |
 
 ### Scroll methods 
@@ -134,3 +135,14 @@ export default {
 
 
 
+--- 
+
+### 常见问题解答
+
+> 问：`van-popup`组件内部使用组件页面无法滚动
+
+设置 `bindToWrapper` 为 `true`
+
+> 问：微信中二维码在`Android`中长按无法弹出识别二维码
+
+给 `img` 添加类 `.preventDefaultException`

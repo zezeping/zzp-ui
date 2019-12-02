@@ -73,13 +73,18 @@ export default {
       type: Object,
       default () {
         return {
-          tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/
+          tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/i,
+          className: /(^|\s)preventDefaultException(\s|$)/
         }
       }
     },
     stopPropagation: {
       type: [Boolean],
       default: false
+    },
+    bounce: {
+      type: [Boolean, Object],
+      default: true
     }
   },
   data () {
@@ -132,8 +137,8 @@ export default {
         autoBlur: this.autoBlur,
         stopPropagation: this.stopPropagation,
         // 是否支持pc滚轮滚动
-        mouseWheel: this.mouseWheel
-        // bounce: this.bounce,
+        mouseWheel: this.mouseWheel,
+        bounce: this.bounce
         // zoom: this.zoom
       }
       // if (this.scroll) {
