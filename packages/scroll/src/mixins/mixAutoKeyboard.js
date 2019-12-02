@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     _handleAutoKeyboard () {
-      this.keyboardItems = [...this.$el.querySelectorAll('input'), ...this.$el.querySelectorAll('textarea')].map(dom => {
+      this.keyboardItems = [].concat(this.$el.querySelectorAll('input')).concat(this.$el.querySelectorAll('textarea')).map(dom => {
         return {
           dom: dom,
           viewHeight: window.innerHeight,

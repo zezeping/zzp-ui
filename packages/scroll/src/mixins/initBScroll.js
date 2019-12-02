@@ -85,6 +85,10 @@ export default {
     bounce: {
       type: [Boolean, Object],
       default: true
+    },
+    useTransition: {
+      type: [Boolean],
+      default: true
     }
   },
   data () {
@@ -138,7 +142,8 @@ export default {
         stopPropagation: this.stopPropagation,
         // 是否支持pc滚轮滚动
         mouseWheel: this.mouseWheel,
-        bounce: this.bounce
+        bounce: this.bounce,
+        useTransition: this.useTransition
         // zoom: this.zoom
       }
       // if (this.scroll) {

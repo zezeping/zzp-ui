@@ -103,7 +103,8 @@ export default {
 | preventDefault | [`事件派发后是否阻止浏览器默认行为`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefault) | `Boolean` | `true` | - | - |
 | preventDefaultException | [`允许部分原生组件的默认行为`](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#preventdefaultexception) | `Object` | `{tagName: /^(INPUT\|TEXTAREA\|BUTTON\|SELECT)$/i, className: /(^\|\s)preventDefaultException(\s\|$)/}` | - | - |
 | stopPropagation | [是否阻止事件冒泡。多用在嵌套 scroll 的场景](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#stoppropagationv190) | `Boolean` | `false` | - | - |
-| bounce | [当滚动超过边缘的时候会有一小段回弹动画](https://better-scroll.github.io/docs/zh-CN/guide/base-scroll-options.html#bounce) | `Boolean`, `Object` | `true` | - | - |
+| bounce | [当滚动超过边缘的时候会有一小段回弹动画](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#bounce) | `Boolean`, `Object` | `true` | - | - |
+| useTransition | [是否使用 CSS3 transition 动画。如果设置为 false，则使用 requestAnimationFrame 做动画](http://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html#usetransition) | `Boolean` | `true` | - | - |
 | autoKeyboard | 是否自动适应移动端键盘弹起 | `Boolean` | `false` | - | - |
 
 ### Scroll methods 
@@ -146,3 +147,9 @@ export default {
 > 问：微信中二维码在`Android`中长按无法弹出识别二维码
 
 给 `img` 添加类 `.preventDefaultException`
+
+> 问：滚动时页面出现闪烁
+
+设置 `useTransition` 为 `false` 
+
+useTransition
