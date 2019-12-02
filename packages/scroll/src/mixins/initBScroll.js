@@ -88,7 +88,7 @@ export default {
     },
     useTransition: {
       type: [Boolean],
-      default: true
+      default: false
     }
   },
   data () {
