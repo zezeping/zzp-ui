@@ -9,7 +9,7 @@
       <div style="display: inline-block; width: 100px">6</div>
       <div style="display: inline-block; width: 100px">7</div>
     </zzp-scroll>
-    <zzp-scroll enableRefresh @refresh="refreshData" enableLoadMore  @loadMore="loadMoreData" ref="zScroll" style="height: 370px">
+    <zzp-scroll enableRefresh @refresh="refreshData" enableLoadMore  @loadMore="mixLoadMoreScrollData" ref="zScroll" style="height: 370px">
       <div slot="topFixed" style="background: #aaa">topFixed <button @click="toggleBlankView">toggleBlankView</button></div>
       <ul slot="beforeScrollTopFixed">
         <li>slot - beforeScrollTopFixed</li>
@@ -18,7 +18,9 @@
         <li style="background: #f00">slot - whenScrollTopFixed</li>
       </ul>
       <ul>
-        <li v-for="(item, idx) in items" :key="idx">{{ item }}</li>
+        <li v-for="(item, idx) in mixScrollData.items" :key="idx">
+          {{item.id}} - {{ item['Name'] }}
+        </li>
       </ul>
       <ul slot="whenScrollBottomFixed">
         <li style="background: #f00">slot - whenScrollBottomFixed</li>
@@ -33,34 +35,18 @@
 
 <script>
 import usage from './usage.md'
+import mixScroll from '../../mixins/mixScroll'
 export default {
+  mixins: [mixScroll],
   data () {
     return {
       usage,
-      items: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
+      items: []
     }
   },
   methods: {
     refreshData () {
-      console.log('begin refreshing')
-      // this.$refs['bScrollRef'].disable()
-      setTimeout(() => {
-        this.items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        console.log('stop refreshing')
-        this.$refs['zScroll'].stopLoading(true)
-        // this.$refs['bScrollRef'].enable()
-        this.$refs['zScroll'].changeBlankViewStatus(this.items.length === 0)
-      }, 3000)
-    },
-    loadMoreData () {
-      console.log('begin loadMore')
-      setTimeout(() => {
-        this.items = this.items.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
-        this.$refs['zScroll'].stopLoading(this.items.length < 45)
-        /* eslint-disable */
-        console.log('finish loadMore')
-        console.log(`items count: ${this.items.length}`)
-      }, 3000)
+      this.mixFetchScrollData(this.api.getArticles)
     },
     toggleBlankView () {
       let zScroll = this.$refs['zScroll']

@@ -4,6 +4,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
+import api from './api'
+Vue.use(api)
 
 import ZzpUi from '../packages'
 Vue.use(ZzpUi)

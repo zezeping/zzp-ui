@@ -1,5 +1,13 @@
 # zzp-ui [![npm](https://img.shields.io/npm/v/zzp-ui.svg?style=flat-square)](https://www.npmjs.com/package/zzp-ui)
 
+## publish
+
+```
+npm run build-lib
+npm publish
+```
+
+
 ## Project setup
 ```
 npm install

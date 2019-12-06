@@ -51,7 +51,7 @@
           <slot name="afterScrollBottomFixed"></slot>
         </template>
         <!--上拉加载更多-->
-        <div class="loadmore-view-container" v-if="enableLoadMore && !enabledBlankView" :style="{lineHeight: `${loadMoreConfig && loadMoreConfig.threshold}px`}">
+        <div class="loadmore-view-container" v-if="enableLoadMore && refreshStatus === 'normal' && !enabledBlankView" :style="{height: `${loadMoreConfig && loadMoreConfig.threshold}px`}">
           <slot name="loadMoreView" :loadMoreStatus="loadMoreStatus">
             <div class="content-box" v-if="!hasMore">
               <span>{{ loadMoreConfig && loadMoreConfig.txt.noMore || '没有更多数据了'}}</span>
@@ -111,7 +111,6 @@ export default {
       //   this.enabledBlankView = enableBlankView
       // }
       this.enabledBlankView = show
-      this.hasMore = !show
     },
     disable () {
       this.scroll && this.scroll.disable()
@@ -209,9 +208,12 @@ export default {
             this.refreshStatus = 'meetRefresh'
           }
         } else {
-          if (this.refreshStatus === 'meetRefresh') {
-            this.refreshStatus = 'normal'
-          }
+          // 延迟回执，比如刚进页面自动下拉刷新，还没有设置为下拉，就恢复成normal了
+          setTimeout(() => {
+            if (this.refreshStatus === 'meetRefresh') {
+              this.refreshStatus = 'normal'
+            }
+          })
         }
       }
     }
@@ -252,19 +254,19 @@ export default {
           align-items: center;
           transition: all;
           color: #999;
-          .content-box {
-            display: flex;
-            align-items: center;
-          }
+          /*.content-box {*/
+            /*display: flex;*/
+            /*align-items: center;*/
+          /*}*/
         }
         .loadmore-view-container {
           font-size: 14Px;
           color: #999;
-          .content-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          /*.content-box {*/
+          /*}*/
         }
 
         .visibility-hidden {

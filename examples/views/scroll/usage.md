@@ -21,7 +21,7 @@ export default {
 
 ```vue
 <template>
-    <zzp-scroll enableRefresh @refresh="refreshData" enableLoadMore  @loadMore="loadMoreData" ref="zScroll">
+    <zzp-scroll enableRefresh @refresh="refreshData" enableLoadMore  @loadMore="mixLoadMoreScrollData" ref="zScroll">
       <div slot="topFixed" style="background: #aaa">topFixed <button @click="toggleBlankView">toggleBlankView</button></div>
       <ul slot="beforeScrollTopFixed">
         <li>slot - beforeScrollTopFixed</li>
@@ -30,7 +30,7 @@ export default {
         <li style="background: #f00">slot - whenScrollTopFixed</li>
       </ul>
       <ul>
-        <li v-for="(item, idx) in items" :key="idx">{{ item }}</li>
+        <li v-for="(item, idx) in mixScrollData.items" :key="idx">{{item.id}} - {{ item['Name'] }}</li>
       </ul>
       <ul slot="whenScrollBottomFixed">
         <li style="background: #f00">slot - whenScrollBottomFixed</li>
@@ -43,33 +43,12 @@ export default {
 </template>
 
 <script>
+import mixScroll from '../../mixins/mixScroll'
 export default {
-  data () {
-    return {
-      items: [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
-    }
-  },
+  mixins: [mixScroll],
   methods: {
     refreshData () {
-      console.log('begin refreshing')
-      // this.$refs['bScrollRef'].disable()
-      setTimeout(() => {
-        this.items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        console.log('stop refreshing')
-        this.$refs['zScroll'].stopLoading(true)
-        // this.$refs['bScrollRef'].enable()
-        this.$refs['zScroll'].changeBlankViewStatus(this.items.length === 0)
-      }, 3000)
-    },
-    loadMoreData () {
-      console.log('begin loadMore')
-      setTimeout(() => {
-        this.items = this.items.concat([11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
-        this.$refs['zScroll'].stopLoading(this.items.length < 45)
-        /* eslint-disable */
-        console.log('finish loadMore')
-        console.log(`items count: ${this.items.length}`)
-      }, 3000)
+      this.mixFetchScrollData(this.api.getArticles)
     },
     toggleBlankView () {
       let zScroll = this.$refs['zScroll']
@@ -153,3 +132,63 @@ export default {
 设置 `useTransition` 为 `false` 
 
 useTransition
+
+
+
+
+--- 
+---
+mixScroll   
+
+```javascript
+export default {
+  data () {
+    return {
+      _mixApiFunc: null,
+      _mixApiParams: {},
+      mixApiExtraParams: {},
+      mixScrollData: {
+        fetching: false,
+        items: [],
+        pagination: null,
+        // 是否存在空页面
+        existBlankView: true
+      }
+    }
+  },
+  methods: {
+    mixFetchScrollData (apiFunc, params = {}, appendMore = false) {
+      this._mixApiFunc = apiFunc
+      this._mixApiParams = Object.assign({ page: 1, pageSize: 10 }, params || {}, this.mixApiExtraParams)
+      this.mixScrollData.fetching = true
+      // if (!appendMore) {
+      //   this.mixScrollData.items = []
+      // }
+      return apiFunc(this._mixApiParams).then(res => {
+        this.mixScrollData.fetching = false
+        if (appendMore) {
+          this.mixScrollData.items = this.mixScrollData.items.concat(res.data.items)
+        } else {
+          this.mixScrollData.items = res.data.items
+        }
+        this.mixScrollData.pagination = res.data.pagination
+        let hasMore = this.mixScrollData.pagination.total > this.mixScrollData.items.length
+        this.$refs['zScroll'] && this.$refs['zScroll'].stopLoading(hasMore)
+        this.$refs['zScroll'] && this.$refs['zScroll'].changeBlankViewStatus(this.mixScrollData.existBlankView && !this.mixScrollData.items.length)
+        return res
+      }).catch(err => {
+        console.log(err)
+        this.mixScrollData.fetching = false
+        let hasMore = this.mixScrollData.pagination.total > this.mixScrollData.items.length
+        this.$refs['bScrollRef'] && this.$refs['bScrollRef'].stopLoading(hasMore)
+      })
+    },
+    mixLoadMoreScrollData () {
+      this._mixApiFunc && this.mixFetchScrollData(this._mixApiFunc, Object.assign(this._mixApiParams, {
+        page: this.mixScrollData.pagination.page + 1,
+        pageSize: this.mixScrollData.pagination.pageSize
+      }), true)
+    }
+  }
+}
+```
