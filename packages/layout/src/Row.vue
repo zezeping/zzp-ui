@@ -1,7 +1,8 @@
 <template>
-  <div class="zzp-row" :class="{flex, [`justify-${justify}`]: flex && justify, [`align-${align}`]: flex && align}"
-       :style="style">
-    <slot></slot>
+  <div class="zzp-row">
+    <div class="row" :class="{flex, [`justify-${justify}`]: flex && justify, [`align-${align}`]: flex && align}" :style="style">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -29,40 +30,43 @@ export default {
 <style lang="scss" scoped>
   .zzp-row {
     display: block;
+    overflow: hidden;
 
-    &.flex {
-      display: flex;
+    .row {
+      &.flex {
+        display: flex;
 
-      &.justify-start {
-        justify-content: flex-start
-      }
+        &.justify-start {
+          justify-content: flex-start
+        }
 
-      &.justify-center {
-        justify-content: center
-      }
+        &.justify-center {
+          justify-content: center
+        }
 
-      &.justify-end {
-        justify-content: flex-end
-      }
+        &.justify-end {
+          justify-content: flex-end
+        }
 
-      &.justify-space-around {
-        justify-content: space-around
-      }
+        &.justify-space-around {
+          justify-content: space-around
+        }
 
-      &.justify-space-between {
-        justify-content: space-between
-      }
+        &.justify-space-between {
+          justify-content: space-between
+        }
 
-      &.align-top {
-        align-items: flex-start
-      }
+        &.align-top {
+          align-items: flex-start
+        }
 
-      &.align-center {
-        align-items: center
-      }
+        &.align-center {
+          align-items: center
+        }
 
-      &.align-bottom {
-        align-items: flex-end
+        &.align-bottom {
+          align-items: flex-end
+        }
       }
     }
   }
