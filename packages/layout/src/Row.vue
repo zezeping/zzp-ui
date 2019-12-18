@@ -1,6 +1,7 @@
 <template>
   <div class="zzp-row">
-    <div class="row" :class="{flex, [`justify-${justify}`]: flex && justify, [`align-${align}`]: flex && align}" :style="style">
+    <div class="row" :class="{flex, [`justify-${justify}`]: flex && justify, [`align-${align}`]: flex && align}"
+         :style="style">
       <slot></slot>
     </div>
   </div>
@@ -30,7 +31,7 @@ export default {
 <style lang="scss" scoped>
   .zzp-row {
     display: block;
-    overflow: hidden;
+    overflow-x: hidden;
 
     .row {
       &.flex {

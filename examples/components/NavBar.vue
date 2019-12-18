@@ -1,15 +1,17 @@
 <template>
   <div class="nav-bar">
-    <router-link :class="{actived: $route.name === 'Home'}" to="/">首页</router-link>
-    <router-link :class="{actived: $route.name === 'Layout'}" to="/layout">Layout 布局</router-link>
-    <router-link :class="{actived: $route.name === 'Scroll'}" to="/scroll">Scroll</router-link>
-    <router-link :class="{actived: $route.name === 'Roll'}" to="/roll">Roll 滚动</router-link>
-    <router-link :class="{actived: $route.name === 'Json'}" to="/json">Json数据</router-link>
-    <router-link :class="{actived: $route.name === 'Qrcode'}" to="/qrcode">Qrcode二维码</router-link>
-    <router-link :class="{actived: $route.name === 'Uploader'}" to="/uploader">Uploader上传</router-link>
-    <router-link :class="{actived: /^Directive/.test($route.name)}" to="/directives">Directives 指令</router-link>
-    <router-link :class="{actived: /^Mixin/.test($route.name)}" to="/mixins">Mixins 混入</router-link>
-    <router-link to="/about">关于</router-link>
+    <div class="nav-bar" style="position: fixed">
+      <router-link :class="{actived: $route.name === 'Home'}" to="/">首页</router-link>
+      <router-link :class="{actived: $route.name === 'Layout'}" to="/layout">Layout 布局</router-link>
+      <router-link :class="{actived: $route.name === 'Scroll'}" to="/scroll">Scroll</router-link>
+      <router-link :class="{actived: $route.name === 'Roll'}" to="/roll">Roll 滚动</router-link>
+      <router-link :class="{actived: $route.name === 'Json'}" to="/json">Json数据</router-link>
+      <router-link :class="{actived: $route.name === 'Qrcode'}" to="/qrcode">Qrcode二维码</router-link>
+      <router-link :class="{actived: $route.name === 'Uploader'}" to="/uploader">Uploader上传</router-link>
+      <router-link :class="{actived: /^Directive/.test($route.name)}" to="/directives">Directives 指令</router-link>
+      <router-link :class="{actived: /^Mixin/.test($route.name)}" to="/mixins">Mixins 混入</router-link>
+      <router-link to="/about">关于</router-link>
+    </div>
   </div>
 </template>
 

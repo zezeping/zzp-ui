@@ -27,6 +27,7 @@ export default {
 <style lang="scss" scoped>
   .zzp-col {
     display: inline-block;
+    overflow: auto;
     @for $i from 1 through 24 {
       &.span-#{$i} {
         width: $i * 100% / 24;
@@ -35,5 +36,11 @@ export default {
         margin-left: $i * 100% / 24;
       }
     }
+    /*&:first-child {*/
+      /*padding-left: 0 !important;*/
+    /*}*/
+    /*&:last-child {*/
+      /*padding-right: 0 !important;*/
+    /*}*/
   }
 </style>
