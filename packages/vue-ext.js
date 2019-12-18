@@ -22,9 +22,19 @@ export default {
 
         return component
       },
-      unmount (component) {
+      async unmount (component) {
+        if (component.close instanceof Function) {
+          await component.close()
+        }
         component.$root.$el.parentNode && component.$root.$el.parentNode.removeChild(component.$root.$el)
         component.$root.$destroy()
+      },
+      sleep (time) {
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve()
+          }, time)
+        })
       }
     }
   }
