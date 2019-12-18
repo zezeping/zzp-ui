@@ -82,7 +82,8 @@ export default {
 | 参数 | 说明 | 类型 | 默认值 | 必填 | 版本 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | items | 需要遍历的元素 | `Array` | `[]` | - | - |
-| speed | 多长时间切换下一张(单位`ms`) | `Number` | `4000` | - | - |
+| autoplay | 多长时间切换下一张(单位`ms`) | `Number` | `4000` | - | - |
+| speed | 切换动画时长(单位`ms`) | `Number` | `500` | - | - |
 | visibleCount | 可见个数 | `Number` | `1` | - | - |
 | direction | 滚动方向, 可选值：`up`, `down`, `left`, `right` | `String` | `up` | - | - |
 
