@@ -6,6 +6,8 @@
       <router-link :class="{actived: $route.name === 'Scroll'}" to="/scroll">Scroll</router-link>
       <router-link :class="{actived: $route.name === 'Roll'}" to="/roll">Roll 滚动</router-link>
       <router-link :class="{actived: $route.name === 'Json'}" to="/json">Json数据</router-link>
+      <router-link :class="{actived: $route.name === 'Icon'}" to="/icon">Icon图标</router-link>
+      <router-link :class="{actived: $route.name === 'Rate'}" to="/rate">Rate评分</router-link>
       <router-link :class="{actived: $route.name === 'Qrcode'}" to="/qrcode">Qrcode二维码</router-link>
       <router-link :class="{actived: $route.name === 'Uploader'}" to="/uploader">Uploader上传</router-link>
       <router-link :class="{actived: /^Directive/.test($route.name)}" to="/directives">Directives 指令</router-link>

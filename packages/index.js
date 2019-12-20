@@ -9,7 +9,9 @@ import scroll from './scroll'
 import roll from './roll'
 import json from './json'
 import qrcode from './qrcode'
-const uses = [layout, scroll, roll, json, qrcode]
+import icon from './icon'
+import rate from './rate'
+const uses = [layout, scroll, roll, json, qrcode, icon, rate]
 const components = []
 
 // eg: Vue.use(zzp-ui, {router, store})
