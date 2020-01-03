@@ -1,6 +1,6 @@
 <template>
   <usage-with-demo :usage="usage">
-    <zzp-rate class="one-rate" icon="icon-star" active-color="#f00" v-model="rate"></zzp-rate>
+    <zzp-rate class="one-rate" icon="icon-star" active-color="#f00" v-model="rate">{{ rate }}</zzp-rate>
     <zzp-rate icon="icon-star" :value="0.5"></zzp-rate>
     <zzp-rate icon="icon-star" :value="1"></zzp-rate>
     <zzp-rate icon="icon-star" :value="3.8"></zzp-rate>
