@@ -85,15 +85,19 @@ export default {
     handleIncompleteRate () {
       let incompleteValue = this.currentValue - parseInt(this.currentValue)
       let oneWidth = this.$refs['itemBgRateRef'][0].$el.offsetWidth
-      switch (this.type) {
-        // case 'full':
-        //   this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${oneWidth}px`
-        //   break
-        case 'half':
-          this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue <= 0.5 ? 0.5 * oneWidth : oneWidth}px`
-          break
-        case 'real':
-          this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue * oneWidth}px`
+      if (this.tmpRateEnable) {
+        switch (this.type) {
+          // case 'full':
+          //   this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${oneWidth}px`
+          //   break
+          case 'half':
+            this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue <= 0.5 ? 0.5 * oneWidth : oneWidth}px`
+            break
+          case 'real':
+            this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue * oneWidth}px`
+        }
+      } else {
+        this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue * oneWidth}px`
       }
     },
     mousemove (event) {
