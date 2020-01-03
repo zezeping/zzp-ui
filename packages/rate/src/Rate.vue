@@ -1,15 +1,15 @@
 <template>
   <div class="zzp-rate">
-    <div class="container" @mouseenter="mouseenter" @mouseleave="mouseleave">
+    <div class="container" @mouseenter="mouseenter" @mousemove="mousemove($event)" @mouseleave="mouseleave" @click="setRate($event)">
       <div class="box bottom">
-        <zzp-icon class="bg" :icon="icon" :color="color" v-for="(i, idx) in max" :key="idx" ref="itemBgRateRef" @mousemove.native="mousemove($event, idx)" @click.native="setRate(idx)"></zzp-icon>
+        <zzp-icon class="bg" :icon="icon" :color="color" v-for="(i, idx) in max" :key="idx" ref="itemBgRateRef"></zzp-icon>
       </div>
       <div class="box top">
-        <zzp-icon class="active" :icon="icon" :color="activeColor" v-for="(i, idx) in intCount" :key="currentValue + idx" ref="itemRateRef" @mousemove.native="mousemove($event, idx)" @click.native="setRate(idx)"></zzp-icon>
+        <zzp-icon class="active" :icon="icon" :color="activeColor" v-for="(i, idx) in intCount" :key="currentValue + idx" ref="itemRateRef"></zzp-icon>
       </div>
     </div>
     <div class="slot">
-      <slot></slot> {{ tmpRate }}
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -37,6 +37,13 @@ export default {
     max: {
       type: [Number, String],
       default: 5
+    },
+    type: {
+      type: String,
+      default: 'full',
+      validator (value) {
+        return ['full', 'half', 'real'].indexOf(value) !== -1
+      }
     }
   },
   data () {
@@ -78,10 +85,24 @@ export default {
     handleIncompleteRate () {
       let incompleteValue = this.currentValue - parseInt(this.currentValue)
       let oneWidth = this.$refs['itemBgRateRef'][0].$el.offsetWidth
-      this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue * oneWidth}px`
+      switch (this.type) {
+        // case 'full':
+        //   this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${oneWidth}px`
+        //   break
+        case 'half':
+          this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue <= 0.5 ? 0.5 * oneWidth : oneWidth}px`
+          break
+        case 'real':
+          this.$refs['itemRateRef'][this.intCount - 1].$el.style.width = `${incompleteValue * oneWidth}px`
+      }
     },
-    mousemove (event, idx) {
-      this.tmpRateEnable && this.setTmpRate(event, idx)
+    mousemove (event) {
+      if (this.tmpRateEnable) {
+        let idx1 = this.$refs['itemBgRateRef'].map(i => i.$el).indexOf(event.target)
+        let idx2 = this.$refs['itemRateRef'].map(i => i.$el).indexOf(event.target)
+        let idx = idx1 !== -1 ? idx1 : idx2
+        idx !== -1 && this.setTmpRate(event, idx)
+      }
     },
     mouseenter () {
       this.tmpRateEnable = true
@@ -92,14 +113,38 @@ export default {
     },
     setTmpRate (event, idx) {
       let baseRate = idx
-      let rateDom = event.target
-      let rateWidth = rateDom && rateDom.clientWidth
+      let rateWidth = this.$refs['itemBgRateRef'] && this.$refs['itemBgRateRef'][0].$el.clientWidth
       if (rateWidth) {
         this.tmpRate = baseRate + Number((event.offsetX / rateWidth).toFixed(2))
       }
     },
-    setRate (idx) {
-      this.currentValue = idx + 1
+    setRate (event) {
+      let idx1 = this.$refs['itemBgRateRef'].map(i => i.$el).indexOf(event.target)
+      let idx2 = this.$refs['itemRateRef'].map(i => i.$el).indexOf(event.target)
+      let idx = idx1 !== -1 ? idx1 : idx2
+      if (idx !== -1) {
+        let baseRate = idx
+        let rateWidth = this.$refs['itemBgRateRef'] && this.$refs['itemBgRateRef'][0].$el.clientWidth
+        let lastPercent = Number(event.offsetX / rateWidth)
+        if (lastPercent === 0) {
+          this.currentValue = baseRate
+          return
+        }
+        switch (this.type) {
+          case 'full':
+            this.currentValue = baseRate + 1
+            break
+          case 'half':
+            if (lastPercent <= 0.5) {
+              this.currentValue = baseRate + 0.5
+            } else {
+              this.currentValue = baseRate + 1
+            }
+            break
+          case 'real':
+            this.currentValue = (baseRate + lastPercent).toFixed(2)
+        }
+      }
     }
   },
   components: {
@@ -115,15 +160,16 @@ export default {
     align-items: center;
     .container {
       .box {
+        pointer-events: none;
         &.top {
           position: absolute;
           left: 0; top: 0;
         }
-
         .zzp-icon {
           display: inline-block;
           overflow: hidden;
           cursor: pointer;
+          pointer-events: auto;
         }
       }
     }

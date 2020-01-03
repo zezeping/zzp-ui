@@ -47,6 +47,7 @@ export default {
 | icon | 图标 | `String` | - | - | - |
 | color | 底色 | `String` | `#D8D8D8` | - | - |
 | activeColor | 激活颜色 | `String` | `#FF9B5E` | - | - |
+| type | 类型, `可选：full, half, real` | `String` | `full` | - | - |
 
 --- 
 
