@@ -42,11 +42,12 @@ export default {
 
 | 参数 | 说明 | 类型 | 默认值 | 必填 | 版本 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| value | 当前个数，显示支持小数 | `Number`` | - | Y | - |
+| value | 当前个数，显示支持小数 | `Number` | - | Y | - |
 | max | 最大个数 | `Number` | `5` | - | - |
 | icon | 图标 | `String` | - | - | - |
 | color | 底色 | `String` | `#D8D8D8` | - | - |
 | activeColor | 激活颜色 | `String` | `#FF9B5E` | - | - |
+| settable | 是否可设置值 | `Boolean` | `false` | - | - |
 | type | 类型, `可选：full, half, real` | `String` | `full` | - | - |
 
 --- 

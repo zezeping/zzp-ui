@@ -1,11 +1,11 @@
 <template>
   <div class="zzp-rate">
-    <div class="container" @mouseenter="mouseenter" @mousemove="mousemove($event)" @mouseleave="mouseleave" @click="setRate($event)">
+    <div class="container" :class="{settable}" @mouseenter="mouseenter" @mousemove="mousemove($event)" @mouseleave="mouseleave" @click="setRate($event)">
       <div class="box bottom">
         <zzp-icon class="bg" :icon="icon" :color="color" v-for="(i, idx) in max" :key="idx" ref="itemBgRateRef"></zzp-icon>
       </div>
-      <div class="box top">
-        <zzp-icon class="active" :icon="icon" :color="activeColor" v-for="(i, idx) in intCount" :key="currentValue + idx" ref="itemRateRef"></zzp-icon>
+      <div class="box top" :key="currentValue">
+        <zzp-icon class="active" :icon="icon" :color="activeColor" v-for="(i, idx) in intCount" :key="idx" ref="itemRateRef"></zzp-icon>
       </div>
     </div>
     <div class="slot">
@@ -44,6 +44,10 @@ export default {
       validator (value) {
         return ['full', 'half', 'real'].indexOf(value) !== -1
       }
+    },
+    settable: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -163,6 +167,12 @@ export default {
     display: flex;
     align-items: center;
     .container {
+      &.settable {
+        cursor: pointer;
+        .zzp-icon {
+          pointer-events: auto;
+        }
+      }
       .box {
         pointer-events: none;
         &.top {
@@ -172,8 +182,6 @@ export default {
         .zzp-icon {
           display: inline-block;
           overflow: hidden;
-          cursor: pointer;
-          pointer-events: auto;
         }
       }
     }
