@@ -1,6 +1,6 @@
 <template>
   <div class="zzp-rate">
-    <div class="container" :class="{settable}" @mouseenter="mouseenter" @mousemove="mousemove($event)" @mouseleave="mouseleave" @click="setRate($event)">
+    <div class="container" :class="{settable: !disabled}" @mouseenter="mouseenter" @mousemove="mousemove($event)" @mouseleave="mouseleave" @click="setRate($event)">
       <div class="box bottom">
         <zzp-icon class="bg" :icon="icon" :color="color" v-for="(i, idx) in max" :key="idx" ref="itemBgRateRef"></zzp-icon>
       </div>
@@ -45,7 +45,7 @@ export default {
         return ['full', 'half', 'real'].indexOf(value) !== -1
       }
     },
-    settable: {
+    disabled: {
       type: Boolean,
       default: false
     }

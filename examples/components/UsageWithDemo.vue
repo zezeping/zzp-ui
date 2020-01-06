@@ -62,6 +62,10 @@ export default {
         height: 450px;
         background: #f7f7f7;
         user-select: none;
+
+        /deep/ .page {
+          min-height: 100%;
+        }
       }
     }
   }

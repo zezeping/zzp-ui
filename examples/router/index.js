@@ -15,6 +15,7 @@ const routes = [
   { path: '/rate', name: 'Rate', component: () => import(/* webpackChunkName: "rate" */ '../views/rate/index.vue') },
   { path: '/qrcode', name: 'Qrcode', component: () => import(/* webpackChunkName: "qrcode" */ '../views/qrcode/index.vue') },
   { path: '/uploader', name: 'Uploader', component: () => import(/* webpackChunkName: "uploader" */ '../views/uploader/index.vue') },
+  { path: '/model', name: 'Model', component: () => import(/* webpackChunkName: "model" */ '../views/model/index.vue') },
   { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/directives'), children: [
       { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/directives/input/index.vue') },
       { path: 'img', name: 'DirectiveImg', component: () => import(/* webpackChunkName: "about" */ '../views/directives/img/index.vue') },

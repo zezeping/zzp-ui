@@ -125,18 +125,12 @@ export default {
 
 > 问：微信中二维码在`Android`中长按无法弹出识别二维码, 或者小米手机原生浏览器`video`播放后无法暂停视频
 
-给 `img`/`video` 添加类 `.preventDefaultException`
+给 `img`/`video` 添加class `preventDefaultException`
 
 > 问：滚动时页面出现闪烁
 
 设置 `useTransition` 为 `false` 
 
-useTransition
-
-
-
-
---- 
 ---
 mixScroll   
 

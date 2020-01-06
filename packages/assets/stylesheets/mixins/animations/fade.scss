@@ -1,0 +1,49 @@
+@mixin keyframes-animation-fade-in($from: 0, $to: 1) {
+  @keyframes animation-fade-in {
+    from {
+      opacity: $from;
+    }
+    to {
+      opacity: $to;
+    }
+  }
+}
+
+@mixin keyframes-animation-fade-out($from: 1, $to: 0) {
+  @keyframes animation-fade-out {
+    from {
+      opacity: $from;
+    }
+    to {
+      opacity: $to;
+    }
+  }
+}
+
+@mixin animation-fade-in ($opacity-from: 0, $opacity-end: 1, $speed-time: .12s) {
+  @include keyframes-animation-fade-in($opacity-from, $opacity-end);
+  animation: animation-fade-in $speed-time linear forwards;
+}
+
+@mixin animation-fade-out ($opacity-from: 0, $opacity-end: 1, $speed-time: .12s) {
+  @include keyframes-animation-fade-out($opacity-from, $opacity-end);
+  animation: animation-fade-out $speed-time linear forwards;
+}
+
+@mixin ui-animation-fade-in-out ($speed-time: .12s) {
+  .fade-in-out-enter-active, .fade-in-out-leave-active {
+    animation: opacity $speed-time linear;
+  }
+  .fade-in-out-enter, .fade-in-out-leave-to {
+    opacity: 0;
+  }
+}
+
+//<div class="box">
+//  <transition name="fade-in-out">
+//    <div class="label" v-if="autoLabel && currentValue">hello</div>
+//  </transition>
+//</div>
+//.box {
+//  @include ui-animation-fade-in-out(0.3s);
+//}

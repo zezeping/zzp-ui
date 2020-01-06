@@ -10,6 +10,7 @@
       <router-link :class="{actived: $route.name === 'Rate'}" to="/rate">Rate评分</router-link>
       <router-link :class="{actived: $route.name === 'Qrcode'}" to="/qrcode">Qrcode二维码</router-link>
       <router-link :class="{actived: $route.name === 'Uploader'}" to="/uploader">Uploader上传</router-link>
+      <router-link :class="{actived: $route.name === 'Model'}" to="/model">Model对话框</router-link>
       <router-link :class="{actived: /^Directive/.test($route.name)}" to="/directives">Directives 指令</router-link>
       <router-link :class="{actived: /^Mixin/.test($route.name)}" to="/mixins">Mixins 混入</router-link>
       <router-link to="/about">关于</router-link>
