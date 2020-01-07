@@ -1,15 +1,17 @@
 <template>
-  <div v-if="currentValue" class="zzp-model" :class="{[position]: position}">
+  <div v-if="currentValue" class="zzp-dialog" :class="{[position]: position}">
     <div v-if="mask" class="mask fade-in" @click.self="!maskLock && close()" ref="maskRef"></div>
     <div class="main" ref="mainRef">
-      <slot></slot>
+      <slot>
+        <div v-html="content"></div>
+      </slot>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ZzpModel',
+  name: 'ZzpDialog',
   props: {
     value: {
       required: false
@@ -27,7 +29,9 @@ export default {
     position: {
       type: String,
       default: 'center'
-    }
+    },
+    // 内容
+    content: String
   },
   data () {
     return {
@@ -70,7 +74,7 @@ export default {
 
 <style lang="scss" scoped>
   @import '../../assets/stylesheets/mixins/animations/fade';
-  .zzp-model {
+  .zzp-dialog {
     position: fixed;
     left: 0; right: 0; top: 0; bottom: 0;
     z-index: 1000;
@@ -85,7 +89,7 @@ export default {
         @include animation-fade-out(.82, 0, .12s);
       }
     }
-    .main {`
+    .main {
       position: relative;
       display: inline-block;
       &.fade-out {

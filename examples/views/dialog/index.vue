@@ -3,7 +3,7 @@
     <div class="page" ref="page">
       <button @click="show=!show">boolShowDialog - {{ show }}</button>
       <button @click="jsShowDialog">jsShowDialog</button>
-      <zzp-model v-model="show">hello dialog</zzp-model>
+      <zzp-dialog v-model="show">hello dialog</zzp-dialog>
     </div>
   </usage-with-demo>
 </template>
@@ -20,7 +20,7 @@ export default {
   methods: {
     jsShowDialog () {
       // 打开模态框
-      let model = this.$ext.mount(this.$options.components.ZzpModel, { onEl: this.$refs['page'] }).show()
+      let model = this.$ext.mount(this.$options.components.ZzpDialog, { onEl: this.$refs['page'], props: { content: `<div style="color: red">hello</div>` } }).show()
       setTimeout(() => {
         // 关闭模态框
         this.$ext.unmount(model)

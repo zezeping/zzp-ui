@@ -21,7 +21,7 @@ export default {
 ### Usage
 ```vue
 <template>
-  <zzp-model v-model="show">hello dialog</zzp-model>
+  <zzp-dialog v-model="show">hello dialog</zzp-dialog>
   <button @click="showDialog"></button>
 </template>
 <script>
@@ -34,7 +34,7 @@ export default {
   methods: {
     showDialog () {
       // 打开模态框
-      let model = this.$ext.mount(this.$options.components.ZzpModel).show()
+      let model = this.$ext.mount(this.$options.components.ZzpDialog).show()
       setTimeout(() => {
         // 关闭模态框
         this.$ext.unmount(model)
@@ -55,6 +55,7 @@ export default {
 | delayCloseTime | 调用close方法延迟关闭 | `Integer` | `150` 单位ms | - | - |
 | doClose | 关闭后的回调 | `Function` | - | - | - |
 | position | 位置 | `String` | `center` | - | - |
+| content | 如果不传slot可以使用该字段自定义html | `String` | - | - | - |
 
 ### Model Methods 
 

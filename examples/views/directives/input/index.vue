@@ -1,6 +1,6 @@
 <template>
   <usage-with-demo :usage="usage">
-    <!--<input type="text" v-model="input" @change="changeInputValue" v-debounce>-->
+    <!--<input type="text" v-dialog="input" @change="changeInputValue" v-debounce>-->
     <zzp-row>
       <zzp-col span="12">
         without lazy

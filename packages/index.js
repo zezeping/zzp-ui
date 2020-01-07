@@ -11,8 +11,8 @@ import json from './json'
 import qrcode from './qrcode'
 import icon from './icon'
 import rate from './rate'
-import model from './model'
-const uses = [layout, scroll, roll, json, qrcode, icon, rate, model]
+import dialog from './dialog'
+const uses = [layout, scroll, roll, json, qrcode, icon, rate, dialog]
 const components = []
 
 // eg: Vue.use(zzp-ui, {router, store})
