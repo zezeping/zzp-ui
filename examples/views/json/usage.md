@@ -54,3 +54,7 @@ export default {
 | colorable | 是否有颜色 | `Boolean` | `true` | - | - |
 | space | 缩进字符数 | `Number` | `2` | - | - |
 
+--- 
+
+### 第三方类似组件
+* https://github.com/michaelfitzhavey/vue-json-tree-view
