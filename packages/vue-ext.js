@@ -29,11 +29,12 @@ export default {
         component.$root.$el.parentNode && component.$root.$el.parentNode.removeChild(component.$root.$el)
         component.$root.$destroy()
       },
+      // return timout
       sleep (time) {
         return new Promise(resolve => {
-          setTimeout(() => {
+          resolve(setTimeout(() => {
             resolve()
-          }, time)
+          }, time))
         })
       }
     }
