@@ -33,3 +33,7 @@ export default {
 | value | 需要生成二维码的文本 | `String` | - | Y | - |
 | options | 选项 | `Object` | - | - | - |
 | tag | dom标签,允许的值：`canvas`, `img` | `String` | `canvas` | - | - |
+
+---
+
+[`vue-qrcode`](https://fengyuanchen.github.io/vue-qrcode/)
