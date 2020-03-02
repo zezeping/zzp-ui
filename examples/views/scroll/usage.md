@@ -113,6 +113,14 @@ export default {
 | refreshView | 自定义下来刷新的视图 | `refreshStatus` | `refreshStatus`的值包括`normal 正常状态`,`meetRefresh 释放后可以执行刷新`, `refreshing 正在刷新中`, `rebounding: 刷新完成，回弹过程中` | - |
 | loadMoreView | 自定义加载更多的视图 | `loadMoreStatus` | `loadMoreStatus`的值包括`normal 正常状态`, `loading 正在刷新中`, `rebounding: 加载完成，回弹过程中` | - |
 
+### Events 
+
+| 事件 | 说明 | 参数 | 额外说明 | 版本 |
+| ---- | ---- | ---- | ---- | ---- |
+| refresh | 触发下拉刷新 | - | - | - |
+| loadMore | 触发滚动加载更多 | - | - | - |
+| imagesLoaded | 内部所有图片`loaded`后 | - | - | - |
+
 
 
 --- 

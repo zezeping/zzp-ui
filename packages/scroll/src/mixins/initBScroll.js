@@ -193,6 +193,7 @@ export default {
           for (let img of imgs) {
             if (finishedImgs.length === imgs.length) {
               this.forceUpdate() // bs提供的刷新的方法，详见官网
+              this.$emit('imagesLoaded')
               return clearInterval(timer)
             } else if (img.complete) {
               if (finishedImgs.indexOf(img) === -1) {
