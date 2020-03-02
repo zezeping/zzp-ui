@@ -3,7 +3,7 @@
     <zzp-col class="usage" :span="24" style="overflow-x: hidden">
       <div class="markdown hljs" v-html="marked(usage)"></div>
     </zzp-col>
-    <div class="demo">
+    <div class="demo" v-if="allSlotKeys.indexOf('default') !== -1">
       <div class="container">
         <slot></slot>
       </div>
@@ -34,6 +34,11 @@ export default {
     usage: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    allSlotKeys () {
+      return Object.keys(this.$slots).concat(Object.keys(this.$scopedSlots)).filter((value, index, self) => { return self.indexOf(value) === index })
     }
   },
   data () {
