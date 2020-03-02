@@ -3,6 +3,7 @@
     <zzp-col style="min-width: 150px;">
       <div class="menus">
         <div class="menu-item" :class="{actived: $route.name === 'MixinModel'}" @click="$router.push({name: 'MixinModel'})">mixModel</div>
+        <div class="menu-item" :class="{actived: $route.name === 'MixinDialog'}" @click="$router.push({name: 'MixinDialog'})">mixDialog</div>
         <div class="menu-item" :class="{actived: $route.name === 'MixinMobileOnPc'}" @click="$router.push({name: 'MixinMobileOnPc'})">mixMobileOnPc</div>
       </div>
     </zzp-col>

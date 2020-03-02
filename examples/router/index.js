@@ -23,6 +23,7 @@ const routes = [
   },
   { path: '/mixins', redirect: '/mixins/mixModel', name: 'Mixin', component: () => import(/* webpackChunkName: "mixins" */ '../views/mixins'), children: [
       { path: 'mixModel', name: 'MixinModel', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixModel/index.vue') },
+      { path: 'mixDialog', name: 'MixinDialog', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixDialog/index.vue') },
       { path: 'mixMobileOnPc', name: 'MixinMobileOnPc', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixMobileOnPc/index.vue') },
     ]
   },
