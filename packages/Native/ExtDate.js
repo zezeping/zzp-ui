@@ -1,5 +1,4 @@
 class ExtDate extends Date {
-
   static get WdayName () {
     return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   }

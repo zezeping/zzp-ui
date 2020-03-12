@@ -19,6 +19,7 @@ const routes = [
   { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/directives'), children: [
       { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/directives/input/index.vue') },
       { path: 'img', name: 'DirectiveImg', component: () => import(/* webpackChunkName: "about" */ '../views/directives/img/index.vue') },
+      { path: 'heightFollowWidth', name: 'DirectiveHeightFollowWidth', component: () => import(/* webpackChunkName: "about" */ '../views/directives/heightFollowWidth/index.vue') },
     ]
   },
   { path: '/mixins', redirect: '/mixins/mixModel', name: 'Mixin', component: () => import(/* webpackChunkName: "mixins" */ '../views/mixins'), children: [
