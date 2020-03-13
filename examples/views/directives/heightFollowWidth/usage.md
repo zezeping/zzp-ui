@@ -4,7 +4,7 @@
 ```javascript
 import Vue from 'vue'
 import heightFollowWidth from 'zzp-ui/packages/directives/heightFollowWidth'
-Vue.use(heightFollowWidth)
+Vue.directive('heightFollowWidth', heightFollowWidth)
 ```
 
 > Usage
