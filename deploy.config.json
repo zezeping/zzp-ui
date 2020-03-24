@@ -11,8 +11,8 @@
       "dirs": ["node_modules"],
       "files": []
     },
-    "installCommand": "cnpm install",
-    "buildCommands": ["cnpm install", "cnpm run build"]
+    "installCommand": "yarn install",
+    "buildCommands": ["yarn install", "yarn run build"]
   },
   "production": {
     "servers": [{
