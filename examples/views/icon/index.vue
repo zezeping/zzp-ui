@@ -2,8 +2,8 @@
   <usage-with-demo :usage="usage">
     <zzp-row>
       <zzp-col span="6"><zzp-icon icon="icon-star"></zzp-icon></zzp-col>
-      <zzp-col span="6"><zzp-icon icon="icon-star"></zzp-icon></zzp-col>
-      <zzp-col span="6"><zzp-icon icon="icon-star"></zzp-icon></zzp-col>
+      <zzp-col span="6"><zzp-icon icon="icon-checkbox"></zzp-icon></zzp-col>
+      <zzp-col span="6"><zzp-icon icon="icon-checkbox-active"></zzp-icon></zzp-col>
       <zzp-col span="6"><zzp-icon icon="icon-star"></zzp-icon></zzp-col>
     </zzp-row>
   </usage-with-demo>

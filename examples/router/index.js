@@ -13,6 +13,7 @@ const routes = [
   { path: '/json', name: 'Json', component: () => import(/* webpackChunkName: "json" */ '../views/json/index.vue') },
   { path: '/icon', name: 'Icon', component: () => import(/* webpackChunkName: "icon" */ '../views/icon/index.vue') },
   { path: '/rate', name: 'Rate', component: () => import(/* webpackChunkName: "rate" */ '../views/rate/index.vue') },
+  { path: '/checkbox', name: 'Checkbox', component: () => import(/* webpackChunkName: "rate" */ '../views/checkbox/index.vue') },
   { path: '/qrcode', name: 'Qrcode', component: () => import(/* webpackChunkName: "qrcode" */ '../views/qrcode/index.vue') },
   { path: '/uploader', name: 'Uploader', component: () => import(/* webpackChunkName: "uploader" */ '../views/uploader/index.vue') },
   { path: '/dialog', name: 'Dialog', component: () => import(/* webpackChunkName: "dialog" */ '../views/dialog/index.vue') },
