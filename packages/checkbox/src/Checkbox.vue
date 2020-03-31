@@ -41,8 +41,8 @@ export default {
     align-items: center;
     padding: 5px 8px;
     color: #5e6d82;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 16px;
     font-weight: 500;
     &.disabled {
       @include disabled;
