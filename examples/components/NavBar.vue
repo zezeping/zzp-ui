@@ -8,6 +8,7 @@
       <router-link :class="{actived: $route.name === 'Json'}" to="/json">Json数据</router-link>
       <router-link :class="{actived: $route.name === 'Icon'}" to="/icon">Icon图标</router-link>
       <router-link :class="{actived: $route.name === 'Rate'}" to="/rate">Rate评分</router-link>
+      <router-link :class="{actived: $route.name === 'Radio'}" to="/radio">Radio</router-link>
       <router-link :class="{actived: $route.name === 'Checkbox'}" to="/checkbox">Checkbox</router-link>
       <router-link :class="{actived: $route.name === 'Qrcode'}" to="/qrcode">Qrcode二维码</router-link>
       <router-link :class="{actived: $route.name === 'Uploader'}" to="/uploader">Uploader上传</router-link>

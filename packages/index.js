@@ -8,12 +8,13 @@ import layout from './layout'
 import scroll from './scroll'
 import roll from './roll'
 import json from './json'
+import radio from './radio'
 import checkbox from './checkbox'
 import qrcode from './qrcode'
 import icon from './icon'
 import rate from './rate'
 import dialog from './dialog'
-const uses = [layout, scroll, roll, json, checkbox, qrcode, icon, rate, dialog]
+const uses = [layout, scroll, roll, json, radio, checkbox, qrcode, icon, rate, dialog]
 const components = []
 
 // eg: Vue.use(zzp-ui, {router, store})
