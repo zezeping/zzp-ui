@@ -1,5 +1,6 @@
 @mixin disabled {
   cursor: not-allowed;
+  pointer-events: none;
   opacity: .5;
   &:active {
     opacity: .5;

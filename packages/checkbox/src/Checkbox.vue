@@ -35,11 +35,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "../../assets/stylesheets/mixins/variables";
   .zzp-checkbox {
     display: inline-flex;
     align-items: center;
-    font-size: 18px;
-    padding: 5px;
+    padding: 5px 8px;
+    color: #5e6d82;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    &.disabled {
+      @include disabled;
+    }
+    &.checked {
+      color: #409eff;
+    }
     .iconfont {
       padding-right: 2px;
     }

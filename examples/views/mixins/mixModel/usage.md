@@ -22,9 +22,9 @@ export default {
 | remoteMethod | 远程搜索方法 | `Function` | - | - | - |
 | loading | 是否正在加载数据 | `Boolean` | `false` | - | - |
 | options | 选项数组 | `Array` | `[]` | - | - |
-| optionLabel | 展示的`key` | `String` | - | - | - |
-| optionValue | 值的`key` | `String` | - | - | - |
-| optionDisabled | 选项是否可用的`key` | `String`, `Boolean` | `false` | - | - |
+| optionLabel | 展示的`key` | `String` | `label` | - | - |
+| optionValue | 值的`key` | `String` | `value` | - | - |
+| optionDisabled | 选项是否可用的`key` | `String` | `disabled` | - | - |
 
 
 > 计算属性

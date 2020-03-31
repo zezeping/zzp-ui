@@ -37,14 +37,16 @@ export default {
       default: () => []
     },
     optionLabel: {
-      type: String
+      type: String,
+      default: 'label'
     },
     optionValue: {
-      type: String
+      type: String,
+      default: 'value'
     },
     optionDisabled: {
-      type: [String, Boolean],
-      default: false
+      type: [String],
+      default: 'disabled'
     }
   },
   computed: {
