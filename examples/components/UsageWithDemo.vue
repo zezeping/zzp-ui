@@ -14,7 +14,6 @@
 <script>
 import marked from 'marked'
 import highlight from 'highlight.js'
-import 'highlight.js/styles/default.css'
 import '../assets/stylesheets/scss/markdown.scss'
 marked.setOptions({
   renderer: new marked.Renderer(),
