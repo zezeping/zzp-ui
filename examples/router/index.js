@@ -16,7 +16,6 @@ const routes = [
   { path: '/radio', name: 'Radio', component: () => import(/* webpackChunkName: "rate" */ '../views/radio/index.vue') },
   { path: '/checkbox', name: 'Checkbox', component: () => import(/* webpackChunkName: "rate" */ '../views/checkbox/index.vue') },
   { path: '/qrcode', name: 'Qrcode', component: () => import(/* webpackChunkName: "qrcode" */ '../views/qrcode/index.vue') },
-  { path: '/uploader', name: 'Uploader', component: () => import(/* webpackChunkName: "uploader" */ '../views/uploader/index.vue') },
   { path: '/dialog', name: 'Dialog', component: () => import(/* webpackChunkName: "dialog" */ '../views/dialog/index.vue') },
   { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/directives'), children: [
       { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/directives/input/index.vue') },
@@ -30,6 +29,7 @@ const routes = [
       { path: 'mixMobileOnPc', name: 'MixinMobileOnPc', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixMobileOnPc/index.vue') },
     ]
   },
+  { path: '/thirdComponents', name: 'ThirdComponents', component: () => import(/* webpackChunkName: "thirdComponents" */ '../views/thirdComponents/index.vue') },
   { path: '/about', name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

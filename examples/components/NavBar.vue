@@ -11,10 +11,10 @@
       <router-link :class="{actived: $route.name === 'Radio'}" to="/radio">Radio</router-link>
       <router-link :class="{actived: $route.name === 'Checkbox'}" to="/checkbox">Checkbox</router-link>
       <router-link :class="{actived: $route.name === 'Qrcode'}" to="/qrcode">Qrcode二维码</router-link>
-      <router-link :class="{actived: $route.name === 'Uploader'}" to="/uploader">Uploader上传</router-link>
       <router-link :class="{actived: $route.name === 'Dialog'}" to="/dialog">Dialog对话框</router-link>
       <router-link :class="{actived: /^Directive/.test($route.name)}" to="/directives">Directives 指令</router-link>
       <router-link :class="{actived: /^Mixin/.test($route.name)}" to="/mixins">Mixins 混入</router-link>
+      <router-link :class="{actived: $route.name === 'ThirdComponents'}" to="/thirdComponents">第三方组件</router-link>
       <router-link to="/about">关于</router-link>
     </div>
   </div>
