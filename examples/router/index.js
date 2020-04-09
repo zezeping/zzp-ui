@@ -17,6 +17,7 @@ const routes = [
   { path: '/checkbox', name: 'Checkbox', component: () => import(/* webpackChunkName: "rate" */ '../views/checkbox/index.vue') },
   { path: '/qrcode', name: 'Qrcode', component: () => import(/* webpackChunkName: "qrcode" */ '../views/qrcode/index.vue') },
   { path: '/dialog', name: 'Dialog', component: () => import(/* webpackChunkName: "dialog" */ '../views/dialog/index.vue') },
+  { path: '/signedBoard', name: 'SignedBoard', component: () => import(/* webpackChunkName: "dialog" */ '../views/signedBoard/index.vue') },
   { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/directives'), children: [
       { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/directives/input/index.vue') },
       { path: 'img', name: 'DirectiveImg', component: () => import(/* webpackChunkName: "about" */ '../views/directives/img/index.vue') },
