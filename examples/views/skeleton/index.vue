@@ -7,7 +7,7 @@
           <p><span data-skeleton>骨架屏骨架屏骨架屏骨架屏骨架屏骨架屏骨架屏骨架屏 骨架屏</span></p>
           <p><span data-skeleton="#999">骨架屏骨架屏骨架屏骨架屏骨架屏骨架屏骨架屏骨架屏 骨架屏骨架屏骨架屏骨</span></p>
           <ul>
-            <img data-skeleton="#ff0" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2888261511,2808819884&fm=26&gp=0.jpg" alt="" style="width: 50px; height: 50px; background: #f00; display: inline-block; border-radius: 50%">
+            <img data-skeleton="#ff0" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2888261511,2808819884&fm=26&gp=0.jpg" alt="" style="width: 50px; height: 50px; display: inline-block; border-radius: 50%">
             <li><span data-skeleton="green">111</span></li>
             <li><span data-skeleton>222</span> <span data-skeleton>hello</span></li>
           </ul>

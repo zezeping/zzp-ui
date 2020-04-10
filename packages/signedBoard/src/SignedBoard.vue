@@ -48,6 +48,7 @@ export default {
     touchmove (e) {
       if (this.drawing) {
         let rect = e.target.getBoundingClientRect()
+        console.log(e.offsetX, e.offsetY)
         let cxt = this.canvas.getContext('2d')
         let x = e.offsetX || (e.changedTouches[0].pageX - rect.x)
         let y = e.offsetY || (e.changedTouches[0].pageY - rect.y)
@@ -72,6 +73,7 @@ export default {
   mounted () {
     this.$nextTick(() => {
       this.canvas = this.$refs['canvas']
+      this.canvas.setAttribute('width', this.$el.clientWidth)
       this.clear()
     })
   }
@@ -85,8 +87,6 @@ export default {
     }
     canvas {
       display: block;
-      width: 100%;
-      height: 100%;
     }
   }
 </style>
