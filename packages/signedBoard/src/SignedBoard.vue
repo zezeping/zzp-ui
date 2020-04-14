@@ -1,5 +1,6 @@
 <template>
   <div class="zzp-signed-board" :class="{ disabled }">
+    <slot></slot>
     <canvas class="canvas" ref="canvas"
             @mousedown.prevent="touchstart($event)" @mousemove.prevent="touchmove($event)" @mouseup.prevent="touchend($event)" @mouseleave="touchend($event)"
             @touchstart.prevent="touchstart($event)" @touchmove.prevent="touchmove($event)" @touchend.prevent="touchend($event)"></canvas>
@@ -21,7 +22,8 @@ export default {
   data () {
     return {
       canvas: null,
-      drawing: false
+      drawing: false,
+      moveCount: 0
     }
   },
   computed: {
@@ -47,19 +49,22 @@ export default {
     },
     touchmove (e) {
       if (this.drawing) {
-        let rect = e.target.getBoundingClientRect()
-        console.log(e.offsetX, e.offsetY)
-        let cxt = this.canvas.getContext('2d')
-        let x = e.offsetX || (e.changedTouches[0].pageX - rect.x)
-        let y = e.offsetY || (e.changedTouches[0].pageY - rect.y)
-        cxt.lineTo(x, y)
-        cxt.stroke()
+        if (e.offsetX || e.changedTouches) {
+          let rect = e.target.getBoundingClientRect()
+          let cxt = this.canvas.getContext('2d')
+          let x = e.offsetX || (e.offsetX === 0 ? e.offsetX : (e.changedTouches[0].pageX - rect.x))
+          let y = e.offsetY || (e.offsetY === 0 ? 0 : (e.changedTouches[0].pageY - rect.y))
+          cxt.lineTo(x, y)
+          cxt.stroke()
+          this.moveCount++
+        }
       }
     },
     touchend () {
       this.drawing = false
       let cxt = this.canvas.getContext('2d')
       cxt.closePath()
+      this.$emit('changeMoveCount', this.moveCount)
     },
     clear () {
       let cxt = this.canvas.getContext('2d')
@@ -82,9 +87,14 @@ export default {
 
 <style lang="scss" scoped>
   .zzp-signed-board {
+    position: relative;
+
     &.disabled {
-      pointer-events: none;
+      canvas {
+        pointer-events: none;
+      }
     }
+
     canvas {
       display: block;
     }

@@ -1,9 +1,10 @@
 <template>
   <usage-with-demo :usage="usage">
     <div class="page" ref="page">
-      <zzp-signed-board ref="signedBoard"></zzp-signed-board>
+      <zzp-signed-board ref="signedBoard" @changeMoveCount="changeMoveCount"></zzp-signed-board>
       <button @click="getSignedBoardImage">获取图片</button>
       <button @click="$refs['signedBoard'].clear()">重签</button>
+      <div>moveCount {{ signMoveCount }}</div>
     </div>
   </usage-with-demo>
 </template>
@@ -14,6 +15,7 @@ import { downloadFileFromBase64 } from '../../../packages/assets/javascripts/lib
 export default {
   data () {
     return {
+      signMoveCount: 0,
       usage,
       show: false
     }
@@ -22,6 +24,9 @@ export default {
     getSignedBoardImage () {
       let imgBase64 = this.$refs['signedBoard'].toImage()
       downloadFileFromBase64(imgBase64, 'signed.png')
+    },
+    changeMoveCount (moveCount) {
+      this.signMoveCount = moveCount
     }
   }
 }
