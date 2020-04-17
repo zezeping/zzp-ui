@@ -59,3 +59,11 @@ signedOptions
 | toImage | 生成图片 | `type[String]` | `image/png` | - | - |
 
 ---
+
+### Event
+
+| 事件 | 说明 | 参数 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| changeMoveCount(count) | move的次数 | - | - |
+
+---
