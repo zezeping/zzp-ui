@@ -18,6 +18,12 @@ import Vue from 'vue'
 import ZzpUi from 'zzp-ui/packages'
 Vue.use(ZzpUi)
 ```
+注意： `vue.config.js`设置编译
+```javascript
+module.exports = {
+  transpileDependencies: [/zzp-ui/]
+}
+```
 
 ---
 
