@@ -70,6 +70,7 @@ export default {
       let cxt = this.canvas.getContext('2d')
       cxt.fillStyle = this.calcSignedOptions.fillStyle
       cxt.fillRect(0, 0, this.canvas.width, this.canvas.width)
+      this.moveCount = 0
     },
     toImage (type = 'image/png') {
       return this.canvas.toDataURL(type)
