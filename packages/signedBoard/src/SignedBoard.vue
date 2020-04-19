@@ -2,8 +2,8 @@
   <div class="zzp-signed-board" :class="{ disabled }">
     <slot></slot>
     <canvas class="canvas" ref="canvas"
-            @mousedown.prevent="touchstart($event)" @mousemove.prevent="touchmove($event)" @mouseup.prevent="touchend($event)" @mouseleave="touchend($event)"
-            @touchstart.prevent="touchstart($event)" @touchmove.prevent="touchmove($event)" @touchend.prevent="touchend($event)"></canvas>
+            @mousedown.prevent.stop="touchstart($event)" @mousemove.prevent.stop="touchmove($event)" @mouseup.prevent.stop="touchend($event)" @mouseleave="touchend($event)"
+            @touchstart.prevent.stop="touchstart($event)" @touchmove.prevent.stop="touchmove($event)" @touchend.prevent.stop="touchend($event)"></canvas>
   </div>
 </template>
 
