@@ -40,20 +40,24 @@ export default {
       this.drawing = true
       let rect = e.target.getBoundingClientRect()
       let cxt = this.canvas.getContext('2d')
+      cxt.beginPath()
       cxt.strokeStyle = this.calcSignedOptions.strokeStyle
       cxt.lineWidth = this.calcSignedOptions.lineWidth
-      cxt.beginPath()
-      let x = e.offsetX || (e.changedTouches[0].pageX - rect.x)
-      let y = e.offsetY || (e.changedTouches[0].pageY - rect.y)
+      let rectX = rect.x || rect.left
+      let rectY = rect.y || rect.top
+      let x = e.offsetX || (e.changedTouches[0].pageX - rectX)
+      let y = e.offsetY || (e.changedTouches[0].pageY - rectY)
       cxt.moveTo(x, y)
     },
     touchmove (e) {
       if (this.drawing) {
         if (e.offsetX || e.changedTouches) {
           let rect = e.target.getBoundingClientRect()
+          let rectX = rect.x || rect.left
+          let rectY = rect.y || rect.top
           let cxt = this.canvas.getContext('2d')
-          let x = e.offsetX || (e.offsetX === 0 ? e.offsetX : (e.changedTouches[0].pageX - rect.x))
-          let y = e.offsetY || (e.offsetY === 0 ? 0 : (e.changedTouches[0].pageY - rect.y))
+          let x = e.offsetX || (e.offsetX === 0 ? e.offsetX : (e.changedTouches[0].pageX - rectX))
+          let y = e.offsetY || (e.offsetY === 0 ? 0 : (e.changedTouches[0].pageY - rectY))
           cxt.lineTo(x, y)
           cxt.stroke()
           this.moveCount++
