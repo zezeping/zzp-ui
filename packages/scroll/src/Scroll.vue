@@ -161,8 +161,9 @@ export default {
           this.refresh()
         }, 1200)
       } else {
-        this.refresh()
+        // this.refresh()
       }
+      this.refresh()
     },
     // 初始化scroll完成自动调用该方法
     _afterInitScroll () {
