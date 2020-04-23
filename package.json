@@ -1,6 +1,6 @@
 {
   "name": "zzp-ui",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "main": "lib/zzp-ui.common",
   "style": "lib/zzp-ui.css",
   "private": false,
