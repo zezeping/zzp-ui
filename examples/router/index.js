@@ -19,6 +19,7 @@ const routes = [
   { path: '/dialog', name: 'Dialog', component: () => import(/* webpackChunkName: "dialog" */ '../views/dialog/index.vue') },
   { path: '/skeleton', name: 'Skeleton', component: () => import(/* webpackChunkName: "skeleton" */ '../views/skeleton/index.vue') },
   { path: '/signedBoard', name: 'SignedBoard', component: () => import(/* webpackChunkName: "signedBoard" */ '../views/signedBoard/index.vue') },
+  { path: '/sticky', name: 'Sticky', component: () => import(/* webpackChunkName: "signedBoard" */ '../views/sticky/index.vue') },
   { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/directives'), children: [
       { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/directives/input/index.vue') },
       { path: 'img', name: 'DirectiveImg', component: () => import(/* webpackChunkName: "about" */ '../views/directives/img/index.vue') },

@@ -16,7 +16,8 @@ import rate from './rate'
 import dialog from './dialog'
 import skeleton from './skeleton'
 import signedBoard from './signedBoard'
-const uses = [layout, scroll, roll, json, radio, checkbox, qrcode, icon, rate, dialog, skeleton, signedBoard]
+import sticky from './sticky'
+const uses = [layout, scroll, roll, json, radio, checkbox, qrcode, icon, rate, dialog, skeleton, signedBoard, sticky]
 const components = []
 
 // eg: Vue.use(zzp-ui, {router, store})
