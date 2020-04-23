@@ -73,7 +73,7 @@ export default {
     clear () {
       let cxt = this.canvas.getContext('2d')
       cxt.fillStyle = this.calcSignedOptions.fillStyle
-      cxt.fillRect(0, 0, this.canvas.width, this.canvas.width)
+      cxt.fillRect(0, 0, this.canvas.width, this.canvas.height)
       this.moveCount = 0
       this.$emit('changeMoveCount', this.moveCount)
     },
@@ -85,6 +85,7 @@ export default {
     this.$nextTick(() => {
       this.canvas = this.$refs['canvas']
       this.canvas.setAttribute('width', this.$el.clientWidth)
+      this.canvas.setAttribute('height', this.$el.clientHeight)
       this.clear()
     })
   }
