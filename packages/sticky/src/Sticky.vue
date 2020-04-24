@@ -39,7 +39,9 @@ export default {
   methods: {
     computePosition () {
       let containerRect = this.container.getBoundingClientRect()
+      containerRect.y = containerRect.y || containerRect.top
       let elementRect = this.$el.getBoundingClientRect()
+      elementRect.y = elementRect.y || elementRect.top
       if (this.whenTop) {
         if (this.fixedTop) {
           if (this.container.scrollTop <= this.fixedOffsetTop) {
