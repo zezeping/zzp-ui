@@ -65,3 +65,4 @@ export default {
 </script>
 
 ```
+`this.$ext.mount(Dialog, { props: {} })`
