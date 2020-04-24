@@ -4,7 +4,9 @@
       <zzp-col span="6"><zzp-icon icon="icon-star"></zzp-icon></zzp-col>
       <zzp-col span="6"><zzp-icon icon="icon-checkbox"></zzp-icon></zzp-col>
       <zzp-col span="6"><zzp-icon icon="icon-checkbox-active"></zzp-icon></zzp-col>
-      <zzp-col span="6"><zzp-icon icon="icon-star"></zzp-icon></zzp-col>
+      <zzp-col span="6"><zzp-icon icon="icon-radio"></zzp-icon></zzp-col>
+      <zzp-col span="6"><zzp-icon icon="icon-radio-active"></zzp-icon></zzp-col>
+      <zzp-col span="6"><zzp-icon rotate icon="icon-snow-loading"></zzp-icon></zzp-col>
     </zzp-row>
   </usage-with-demo>
 </template>
@@ -36,5 +38,9 @@ export default {
     text-align: center;
     padding: 10px;
     /*background: #f00;*/
+    .zzp-icon {
+      color: #f00;
+      font-size: 30px;
+    }
   }
 </style>
