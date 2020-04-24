@@ -1,19 +1,19 @@
-# Json输出 [pc&wap]
+# Sticky 粘性布局 [pc&wap]
 
 ## Install
 
 单独安装组件
 ```vue
 import Vue from 'vue'
-import json from 'zzp-ui/packages/json'
-Vue.use(json)
+import sticky from 'zzp-ui/packages/sticky'
+Vue.use(sticky)
 ```
 或
 ```vue
-import Json from 'zzp-ui/packages/json/json'
+import Sticky from 'zzp-ui/packages/sticky/sticky'
 export default {
   components: {
-    [Json.name]: Json
+    [Sticky.name]: Sticky
   }
 }
 ```
@@ -22,39 +22,62 @@ export default {
 
 ```vue
 <template>
-    <zzp-json :json="json"></zzp-json>
-    <zzp-json :json="json" :colorable="false"></zzp-json>
-    <zzp-json :json="json" :space="4"></zzp-json>
+<div class="scroll-container" ref="zScroll">
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li class="sticky">
+      <zzp-sticky :container="container" when-top when-bottom>
+        <span>when-top</span>
+        <span> when-bottom</span>
+      </zzp-sticky>
+    </li>
+    <li>11</li>
+    <li>12</li>
+    <li>13</li>
+    <li>14</li>
+    <li>15</li>
+    <li>16</li>
+    <li>17</li>
+    <li>18</li>
+  </ul>
+</div>
 </template>
 
+<script>
 export default {
-    data () {
-      return {
-        json: {
-          name: 'ZhangSan',
-          age: 18,
-          address: {
-            province: 'Beijing',
-            City: 'Beijing'
-          },
-          isGay: false,
-          ca: null,
-          favor: ['swimming', 'basketball']
-        }
-      }
+  data () {
+    return {
+      container: null
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.container = this.$refs['zScroll']
+    })
+  }
 }
+</script>
 ```
 
-### Json Props 
+### Sticky Props 
 
 | 参数 | 说明 | 类型 | 默认值 | 必填 | 版本 |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-| json | 需要展示的`json`对象 | `Object`, `Array` | - | Y | - |
-| colorable | 是否有颜色 | `Boolean` | `true` | - | - |
-| space | 缩进字符数 | `Number` | `2` | - | - |
+| container | 滚动容器 | `Object` | - | Y | - |
+| when-top | 是否滚动到`顶部`吸附 | `Boolean` | `false` | - | - |
+| when-bottom | 是否滚动到`底部`吸附 | `Boolean` | `false` | - | - |
 
 --- 
 
-### 第三方类似组件
-* https://github.com/michaelfitzhavey/vue-json-tree-view
+### Scroll methods 
+
+| 方法 | 说明 | 参数 | 默认值 | 必填 | 版本 |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| computePosition | 计算粘性效果 | - | - | - | - |

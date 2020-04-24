@@ -11,9 +11,9 @@
         <li>7</li>
         <li>8</li>
         <li class="sticky">
-          <zzp-sticky :container="container">
-            <span>hello</span>
-            <span>world</span>
+          <zzp-sticky :container="container" when-top when-bottom>
+            <span>when-top</span>
+            <span> when-bottom</span>
           </zzp-sticky>
         </li>
         <li>11</li>
@@ -32,17 +32,17 @@
 <script>
 import usage from './usage.md'
 export default {
-  data () {
-    return {
-      usage,
-      container: null
-    }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      this.container = this.$refs['zScroll']
-    })
+data () {
+  return {
+    usage,
+    container: null
   }
+},
+mounted () {
+  this.$nextTick(() => {
+    this.container = this.$refs['zScroll']
+  })
+}
 }
 </script>
 
@@ -50,6 +50,7 @@ export default {
   .scroll-container {
     height: 100%;
     overflow: auto;
+    overflow-scrolling: touch;
     &::-webkit-scrollbar { display:none }
   }
   li {

@@ -8,9 +8,13 @@
 export default {
   name: 'ZzpSticky',
   props: {
-    position: {
-      type: String,
-      default: 'top'
+    whenTop: {
+      type: Boolean,
+      default: false
+    },
+    whenBottom: {
+      type: Boolean,
+      default: false
     },
     container: {
       required: false
@@ -18,9 +22,11 @@ export default {
   },
   data () {
     return {
+      scrollEventListener: null,
       fixedTop: false,
       fixedOffsetTop: 0,
-      fixedBottom: false
+      fixedBottom: false,
+      fixedOffsetBottom: 0
     }
   },
   computed: {
@@ -31,50 +37,45 @@ export default {
     }
   },
   methods: {
-    watchContainer () {
-      console.log(this.container)
-      this.container.addEventListener('scroll', (e) => {
-        let currentScrollTop = this.container.scrollTop
-        let containerRect = this.container.getBoundingClientRect()
-        let elementRect = this.$el.getBoundingClientRect()
-        switch (this.position) {
-          case 'top':
-            if (this.fixedTop) {
-              console.log(111, currentScrollTop, this.fixedOffsetTop)
-              if (this.container.scrollTop <= this.fixedOffsetTop) {
-                this.fixedTop = false
-              }
-              // console.log(containerRect, elementRect, this.fixedElementRect)
-            } else {
-              if (elementRect.y <= containerRect.y) {
-                this.fixedOffsetTop = this.$el.offsetTop
-                this.fixedTop = true
-              }
-            }
-            break
-          case 'bottom':
-            if (this.fixedTop) {
-              if (this.container.scrollTop >= this.fixedOffsetTop) {
-                this.fixedBottom = false
-              }
-              // console.log(containerRect, elementRect, this.fixedElementRect)
-            } else {
-              if (elementRect.y <= containerRect.y) {
-                this.fixedOffsetBottom = this.$el.offsetTop
-                this.fixedBottom = true
-              }
-            }
-            break
+    computePosition () {
+      let containerRect = this.container.getBoundingClientRect()
+      let elementRect = this.$el.getBoundingClientRect()
+      if (this.whenTop) {
+        if (this.fixedTop) {
+          if (this.container.scrollTop <= this.fixedOffsetTop) {
+            this.fixedTop = false
+          }
+        } else {
+          if (elementRect.y <= containerRect.y) {
+            this.fixedOffsetTop = this.$el.offsetTop
+            this.fixedTop = true
+          }
         }
-        console.log('----------', this.fixedTop)
-        console.log(containerRect, elementRect)
-      })
+      }
+      if (this.whenBottom) {
+        if (this.fixedBottom) {
+          if (this.container.scrollTop + containerRect.height - elementRect.height >= this.fixedOffsetBottom) {
+            this.fixedBottom = false
+          }
+        } else {
+          if (elementRect.y >= containerRect.y + containerRect.height - elementRect.height) {
+            this.fixedOffsetBottom = this.$el.offsetTop
+            this.fixedBottom = true
+          }
+        }
+      }
+    },
+    watchContainer () {
+      if (!this.scrollEventListener) {
+        this.scrollEventListener = (e) => { this.computePosition() }
+        this.container.addEventListener('scroll', this.scrollEventListener)
+        // 默认执行一次，初始化元素计算粘性效果
+        this.computePosition()
+      }
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      console.log(this.container)
-    })
+  beforeDestroy () {
+    this.container.removeEventListener('scroll', this.scrollEventListener)
   }
 }
 </script>
