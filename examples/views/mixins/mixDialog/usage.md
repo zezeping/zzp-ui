@@ -47,3 +47,21 @@ export default {
   }
 }
 ```
+
+### Demo Usage
+> Element-ui
+```vue
+<template>
+  <el-dialog title="状态列表" center :visible.sync="mixShowDialog" @closed="mixOnCancel" :close-on-click-modal="false" destroy-on-close>
+    hello dialog
+  </el-dialog>
+</template>
+
+<script>
+import mixDialog from 'zzp-ui/packages/mixins/mixDialog'
+export default {
+  mixins: [mixDialog]
+}
+</script>
+
+```
