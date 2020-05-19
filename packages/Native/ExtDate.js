@@ -92,6 +92,15 @@ class ExtDate extends Date {
     return this.getMilliseconds()
   }
 
+  // 时初
+  get atBeginningOfHour () {
+    return new this.constructor(this.year, this.month - 1, this.day, this.hour, 0, 0)
+  }
+  // 时末
+  get atEndOfHour () {
+    return new this.constructor(this.year, this.month - 1, this.day, this.hour, 59, 59)
+  }
+
   // 日初
   get atBeginningOfDate () {
     return new this.constructor(this.year, this.month - 1, this.day)
