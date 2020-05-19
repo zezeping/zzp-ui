@@ -94,11 +94,11 @@ class ExtDate extends Date {
 
   // 日初
   get atBeginningOfDate () {
-    return new this.constructor(this.year, this.month - 1, this.date)
+    return new this.constructor(this.year, this.month - 1, this.day)
   }
   // 日末
   get atEndOfDate () {
-    return new this.constructor(this.year, this.month - 1, this.date, 23, 59, 59)
+    return new this.constructor(this.year, this.month - 1, this.day, 23, 59, 59)
   }
   // 周初
   get atBeginningOfWeek () {
