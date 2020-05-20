@@ -142,6 +142,38 @@ class ExtDate extends Date {
   getNextDate () {
     return new this.constructor(this.getTime() + 86400000)
   }
+  setFullYear () {
+    super.setFullYear(...arguments)
+    return this
+  }
+  setYear () {
+    super.setYear(...arguments)
+    return this
+  }
+  setMonth () {
+    super.setMonth(...arguments)
+    return this
+  }
+  setDate () {
+    super.setDate(...arguments)
+    return this
+  }
+  setHours () {
+    super.setHours(...arguments)
+    return this
+  }
+  setMinutes () {
+    super.setMinutes(...arguments)
+    return this
+  }
+  setSeconds () {
+    super.setSeconds(...arguments)
+    return this
+  }
+  setMilliseconds () {
+    super.setMilliseconds(...arguments)
+    return this
+  }
 
   strftime (dateFormat = '%Y-%M-%d %H:%m:%s') {
     return dateFormat
