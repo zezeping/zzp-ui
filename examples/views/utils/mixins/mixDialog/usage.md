@@ -2,7 +2,7 @@
 
 ### Usage
 ```
-import mixDialog from 'zzp-ui/packages/mixins/mixDialog'
+import mixDialog from 'zzp-ui/packages/utils/mixins/mixDialog'
 export default {
    mixins: [mixDialog]
 }

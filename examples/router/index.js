@@ -20,19 +20,25 @@ const routes = [
   { path: '/skeleton', name: 'Skeleton', component: () => import(/* webpackChunkName: "skeleton" */ '../views/skeleton/index.vue') },
   { path: '/signedBoard', name: 'SignedBoard', component: () => import(/* webpackChunkName: "signedBoard" */ '../views/signedBoard/index.vue') },
   { path: '/sticky', name: 'Sticky', component: () => import(/* webpackChunkName: "signedBoard" */ '../views/sticky/index.vue') },
-  { path: '/directives', redirect: '/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/directives'), children: [
-      { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/directives/input/index.vue') },
-      { path: 'img', name: 'DirectiveImg', component: () => import(/* webpackChunkName: "about" */ '../views/directives/img/index.vue') },
-      { path: 'heightFollowWidth', name: 'DirectiveHeightFollowWidth', component: () => import(/* webpackChunkName: "about" */ '../views/directives/heightFollowWidth/index.vue') },
+  { path: '/utils', name: 'Utils', redirect: '/utils/directives', component: () => import(/* webpackChunkName: "mixins" */ '../views/utils'), children: [
+      { path: 'directives', redirect: '/utils/directives/input', name: 'Directive', component: () => import(/* webpackChunkName: "directives" */ '../views/utils/directives'), children: [
+          { path: 'input', name: 'DirectiveInput', component: () => import(/* webpackChunkName: "about" */ '../views/utils/directives/input/index.vue') },
+          { path: 'img', name: 'DirectiveImg', component: () => import(/* webpackChunkName: "about" */ '../views/utils/directives/img/index.vue') },
+          { path: 'heightFollowWidth', name: 'DirectiveHeightFollowWidth', component: () => import(/* webpackChunkName: "about" */ '../views/utils/directives/heightFollowWidth/index.vue') },
+        ]
+      },
+      { path: 'mixins', redirect: '/utils/mixins/mixModel', name: 'Mixin', component: () => import(/* webpackChunkName: "mixins" */ '../views/utils/mixins'), children: [
+          { path: 'mixModel', name: 'MixinModel', component: () => import(/* webpackChunkName: "about" */ '../views/utils/mixins/mixModel/index.vue') },
+          { path: 'mixDialog', name: 'MixinDialog', component: () => import(/* webpackChunkName: "about" */ '../views/utils/mixins/mixDialog/index.vue') },
+          { path: 'mixMobileOnPc', name: 'MixinMobileOnPc', component: () => import(/* webpackChunkName: "about" */ '../views/utils/mixins/mixMobileOnPc/index.vue') },
+        ]
+      },
+      { path: 'validators', redirect: '/utils/validators/elementUiValidators', name: 'Validators', component: () => import(/* webpackChunkName: "mixins" */ '../views/utils/validators'), children: [
+          { path: 'elementUiValidators', name: 'ElementUiValidators', component: () => import(/* webpackChunkName: "about" */ '../views/utils/validators/elementUiValidators/index.vue') },
+        ]
+      },
     ]
   },
-  { path: '/mixins', redirect: '/mixins/mixModel', name: 'Mixin', component: () => import(/* webpackChunkName: "mixins" */ '../views/mixins'), children: [
-      { path: 'mixModel', name: 'MixinModel', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixModel/index.vue') },
-      { path: 'mixDialog', name: 'MixinDialog', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixDialog/index.vue') },
-      { path: 'mixMobileOnPc', name: 'MixinMobileOnPc', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixMobileOnPc/index.vue') },
-    ]
-  },
-  { path: '/validators', name: 'Validators', component: () => import(/* webpackChunkName: "thirdComponents" */ '../views/validators/index.vue') },
   { path: '/thirdComponents', name: 'ThirdComponents', component: () => import(/* webpackChunkName: "thirdComponents" */ '../views/thirdComponents/index.vue') },
   { path: '/about', name: 'about',
     // route level code-splitting

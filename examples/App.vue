@@ -36,8 +36,11 @@ export default {
   background: #eef1f5;
   color: #2c3e50;
 
-  /*deep*/ a {
-    color: #2c3e50;
-  }
+  /*/deep/ a {*/
+  /*  color: #2c3e50;*/
+  /*}*/
+}
+a {
+  color: #2c3e50;
 }
 </style>

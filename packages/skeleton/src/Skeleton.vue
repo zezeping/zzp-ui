@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import skeleton from '../../directives/skeleton'
+import skeleton from '../../utils/directives/skeleton'
 export default {
   name: 'ZzpSkeleton',
   props: {

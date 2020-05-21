@@ -8,7 +8,7 @@
 
 <script>
 import Checkbox from './Checkbox'
-import mixModel from '../../mixins/mixModel'
+import mixModel from '../../utils/mixins/mixModel'
 export default {
   name: 'ZzpCheckboxGroup',
   mixins: [mixModel],

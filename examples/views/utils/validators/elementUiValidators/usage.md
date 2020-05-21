@@ -1,9 +1,10 @@
-# Element-UI Validators
+# Element-ui Validators
 
 ### Install
 ```javascript
-import validators from 'zzp-ui/packages/utils/validators/element-ui'
-Vue.use(validators)
+import elementUiValidators from 'zzp-ui/packages/utils/validators/element-ui'
+// merge element-ui validators to Vue.prototype.$validators
+Vue.use(elementUiValidators) 
 ```
 
 ### Support

@@ -2,7 +2,7 @@
 
 ### Usage
 ```
-import mixModel from 'zzp-ui/packages/mixins/mixModel'
+import mixModel from 'zzp-ui/packages/utils/mixins/mixModel'
 export default {
    mixins: [mixModel]
 }

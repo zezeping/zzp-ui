@@ -8,7 +8,7 @@
 
 <script>
 import Radio from './Radio'
-import mixModel from '../../mixins/mixModel'
+import mixModel from '../../utils/mixins/mixModel'
 export default {
   name: 'ZzpRadioGroup',
   mixins: [mixModel],

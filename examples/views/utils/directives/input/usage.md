@@ -3,7 +3,7 @@
 > 安装Input 所有指令
 ```javascript
 import Vue from 'vue'
-import input from 'zzp-ui/packages/directives/input'
+import input from 'zzp-ui/packages/utils/directives/input'
 Vue.use(input)
 ```
 
@@ -13,7 +13,7 @@ Vue.use(input)
 > 单独安装`v-debounce`组件
 ```vue
 import Vue from 'vue'
-import debounce from 'zzp-ui/packages/directives/input/debounce'
+import debounce from 'zzp-ui/packages/utils/directives/input/debounce'
 Vue.directive('debounce', debounce)
 ```
 

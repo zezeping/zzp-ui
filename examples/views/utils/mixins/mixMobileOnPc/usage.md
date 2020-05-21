@@ -2,7 +2,7 @@
 
 ### Usage
 ```
-import mixModel from 'zzp-ui/packages/mixins/mixMobileOnPc'
+import mixModel from 'zzp-ui/packages/utils/mixins/mixMobileOnPc'
 export default {
    mixins: [mixMobileOnPc]
 }

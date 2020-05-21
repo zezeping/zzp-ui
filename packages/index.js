@@ -2,7 +2,8 @@ import './assets/stylesheets/application.scss'
 
 import VueExt from './vue-ext'
 
-import directives from './directives'
+import directives from './utils/directives'
+import validators from './utils/validators'
 
 import layout from './layout'
 import scroll from './scroll'
@@ -29,6 +30,8 @@ const install = function (Vue, globalVueOptions) {
   Vue.use(VueExt, globalVueOptions)
   // directives
   Vue.use(directives)
+  // validators
+  Vue.use(validators)
   // components
   uses.map(component => Vue.use(component))
   components.map(component => Vue.component(component.name, component))
