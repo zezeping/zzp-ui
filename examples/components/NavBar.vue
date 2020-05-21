@@ -17,6 +17,7 @@
       <router-link :class="{actived: $route.name === 'Sticky'}" to="/sticky">Sticky粘性布局 </router-link>
       <router-link :class="{actived: /^Directive/.test($route.name)}" to="/directives">Directives 指令</router-link>
       <router-link :class="{actived: /^Mixin/.test($route.name)}" to="/mixins">Mixins 混入</router-link>
+      <router-link :class="{actived: $route.name === 'Validators'}" to="/validators">数据验证</router-link>
       <router-link :class="{actived: $route.name === 'ThirdComponents'}" to="/thirdComponents">第三方组件</router-link>
       <router-link to="/about">关于</router-link>
     </div>

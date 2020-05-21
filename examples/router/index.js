@@ -32,6 +32,7 @@ const routes = [
       { path: 'mixMobileOnPc', name: 'MixinMobileOnPc', component: () => import(/* webpackChunkName: "about" */ '../views/mixins/mixMobileOnPc/index.vue') },
     ]
   },
+  { path: '/validators', name: 'Validators', component: () => import(/* webpackChunkName: "thirdComponents" */ '../views/validators/index.vue') },
   { path: '/thirdComponents', name: 'ThirdComponents', component: () => import(/* webpackChunkName: "thirdComponents" */ '../views/thirdComponents/index.vue') },
   { path: '/about', name: 'about',
     // route level code-splitting
