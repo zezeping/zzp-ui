@@ -18,7 +18,8 @@ export default function (options) {
         }
       }
     }
-    callback(new Error('参数错误'))
+    // 默认合法
+    callback()
   }
   return Object.assign({ validator: maxValueValidator, message, trigger: 'blur' }, options)
 }
