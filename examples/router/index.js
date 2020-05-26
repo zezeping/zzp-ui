@@ -33,8 +33,14 @@ const routes = [
           { path: 'mixMobileOnPc', name: 'MixinMobileOnPc', component: () => import(/* webpackChunkName: "about" */ '../views/utils/mixins/mixMobileOnPc/index.vue') },
         ]
       },
-      { path: 'validators', redirect: '/utils/validators/elementUiValidators', name: 'Validators', component: () => import(/* webpackChunkName: "mixins" */ '../views/utils/validators'), children: [
+      { path: 'validators', redirect: '/utils/validators/elementUiValidators', name: 'Validators', component: () => import(/* webpackChunkName: "validators" */ '../views/utils/validators'), children: [
           { path: 'elementUiValidators', name: 'ElementUiValidators', component: () => import(/* webpackChunkName: "about" */ '../views/utils/validators/elementUiValidators/index.vue') },
+        ]
+      },
+      { path: 'natives', redirect: '/utils/natives/extObject', name: 'Natives', component: () => import(/* webpackChunkName: "natives" */ '../views/utils/natives'), children: [
+          { path: 'extObject', name: 'NativeExtObject', component: () => import(/* webpackChunkName: "extObject" */ '../views/utils/natives/extObject/index.vue') },
+          { path: 'extDate', name: 'NativeExtDate', component: () => import(/* webpackChunkName: "extDate" */ '../views/utils/natives/extDate/index.vue') },
+          { path: 'extFormData', name: 'NativeExtFormData', component: () => import(/* webpackChunkName: "extFormData" */ '../views/utils/natives/extFormData/index.vue') },
         ]
       },
     ]

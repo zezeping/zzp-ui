@@ -1,4 +1,4 @@
-class ExObject extends Object {
+class ExtObject extends Object {
   static isObject (v) {
     return typeof v === 'function' || `${v}` === '[object Object]'
   }
@@ -21,4 +21,4 @@ class ExObject extends Object {
     }
   }
 }
-export default ExObject
+export default ExtObject

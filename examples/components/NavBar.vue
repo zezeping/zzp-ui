@@ -23,6 +23,7 @@
       <router-link :class="{actived: /^Directive/.test($route.name)}" to="/utils/directives">Directives 指令</router-link>
       <router-link :class="{actived: /^Mixin/.test($route.name)}" to="/utils/mixins">Mixins 混入</router-link>
       <router-link :class="{actived: /Validators$/.test($route.name)}" to="/utils/validators">Validators 数据验证</router-link>
+      <router-link :class="{actived: /^Native/.test($route.name)}" to="/utils/natives">Natives 原生对象拓展</router-link>
       <router-link :class="{actived: $route.name === 'ThirdComponents'}" to="/thirdComponents">第三方组件</router-link>
       <router-link to="/about">关于</router-link>
     </div>
