@@ -1,4 +1,4 @@
-import watchPopStateChange from './assets/javascripts/lib/watchPopStateChange'
+// import watchPopStateChange from './assets/javascripts/lib/watchPopStateChange'
 export default {
   install (Vue, globalVueOptions = {}) {
     Vue.prototype.$ext = Vue.prototype.$ext || {
@@ -8,18 +8,19 @@ export default {
 
         const instance = new Vue({
           ...Object.assign({}, globalVueOptions, vueOptions),
+          watch: {
+            '$route' (to, from) {
+              let component = instance.$children[0]
+              Vue.prototype.$ext.unmount(component)
+            }
+          },
           render (h) {
             return h(Component, { ...componentOptions })
           }
         })
 
         parentDom.appendChild(instance.$mount().$el)
-        let component = instance.$children[0]
-
-        watchPopStateChange(component, true, () => {
-          Vue.prototype.$ext.unmount(component)
-        })
-
+        const component = instance.$children[0]
         return component
       },
       async unmount (component) {
