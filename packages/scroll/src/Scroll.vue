@@ -151,10 +151,6 @@ export default {
         }, 1200)
       } else if (this.enableLoadMore && this.loadMoreStatus === 'loading') {
         this.loadMoreStatus = 'rebounding'
-        // 获取到列表重新计算底部吸底
-        this.$nextTick(() => {
-          this.__handlerOnScroll(this.beforeScrollPos)
-        })
         setTimeout(() => {
           this.scroll['finishPullUp']()
           this.loadMoreStatus = 'normal'
@@ -163,6 +159,10 @@ export default {
       } else {
         // this.refresh()
       }
+      // 获取到列表重新计算底部吸底
+      this.$nextTick(() => {
+        this.__handlerOnScroll(this.beforeScrollPos)
+      })
       this.refresh()
     },
     // 初始化scroll完成自动调用该方法
