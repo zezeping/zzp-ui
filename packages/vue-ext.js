@@ -3,14 +3,14 @@ export default {
   install (Vue, globalVueOptions = {}) {
     Vue.prototype.$ext = Vue.prototype.$ext || {
       mount (Component, componentOptions = {}, vueOptions = {}) {
-        let parentDom = componentOptions['onEl'] || document.body
+        const parentDom = componentOptions['onEl'] || document.body
         delete componentOptions['onEl']
 
         const instance = new Vue({
           ...Object.assign({}, globalVueOptions, vueOptions),
           watch: {
             '$route' (to, from) {
-              let component = instance.$children[0]
+              const component = instance.$children[0]
               Vue.prototype.$ext.unmount(component)
             }
           },
